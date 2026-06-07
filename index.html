@@ -157,67 +157,6 @@ body.lang-en .mob-menu a:hover {
   border-right-color: transparent;
 }
 
-body.lang-de {
-  direction: ltr;
-}
-body.lang-de .wrap,
-body.lang-de .hero-in,
-body.lang-de .two {
-  direction: ltr;
-  text-align: left;
-}
-body.lang-de .label::before {
-  margin-left: 10px;
-  margin-right: 0;
-}
-body.lang-de .hero-badge {
-  direction: ltr;
-}
-body.lang-de .btn {
-  flex-direction: row-reverse;
-}
-body.lang-de .tl {
-  grid-template-columns: 76px 1fr;
-}
-body.lang-de .feat li::before {
-  content: '→';
-  right: auto;
-  left: 0;
-}
-body.lang-de .feat li {
-  padding-right: 0;
-  padding-left: 18px;
-}
-body.lang-de .job-buls li::before {
-  right: auto;
-  left: 0;
-}
-body.lang-de .job-buls li {
-  padding-right: 0;
-  padding-left: 16px;
-}
-body.lang-de .dev-tl {
-  border-right: none;
-  border-left: 2px solid var(--border2);
-  margin-right: 0;
-  margin-left: 8px;
-  padding-right: 0;
-  padding-left: 16px;
-}
-body.lang-de .dev-step::before {
-  right: auto;
-  left: -21px;
-}
-body.lang-de .mob-menu a {
-  border-right: none;
-  border-left: 3px solid transparent;
-  text-align: left;
-}
-body.lang-de .mob-menu a:hover {
-  border-left-color: var(--accent);
-  border-right-color: transparent;
-}
-
 a { color:inherit; text-decoration:none; }
 ::-webkit-scrollbar { width:3px; }
 ::-webkit-scrollbar-thumb { background:var(--accent); border-radius:3px; }
@@ -280,16 +219,6 @@ body.lang-en .logo {
   display: inline-block;
 }
 body.lang-en .logo::before {
-  right: auto;
-  left: 0;
-  transform-origin: left;
-}
-
-body.lang-de .logo {
-  direction: ltr;
-  display: inline-block;
-}
-body.lang-de .logo::before {
   right: auto;
   left: 0;
   transform-origin: left;
@@ -436,71 +365,6 @@ nav.solid {
 }
 .theme-btn:hover, .lang-btn:hover { border-color:var(--border2); background:var(--glow); color:var(--accent); }
 
-/* Language Selector Dropdown */
-.lang-selector {
-  position: relative;
-  display: inline-block;
-}
-.lang-selector .lang-btn {
-  cursor: pointer;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 0 12px;
-  height: 40px;
-  gap: 6px;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-.lang-selector .lang-btn span {
-  font-size: 0.9rem;
-}
-.lang-dropdown {
-  position: absolute;
-  top: 45px;
-  right: 0;
-  background: var(--surface);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--border2);
-  border-radius: 12px;
-  padding: 8px 0;
-  min-width: 120px;
-  z-index: 1000;
-  display: none;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-.lang-dropdown.show {
-  display: block;
-}
-.lang-dropdown button {
-  width: 100%;
-  text-align: right;
-  padding: 8px 16px;
-  background: none;
-  border: none;
-  color: var(--fg2);
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.lang-dropdown button:hover {
-  background: var(--glow2);
-  color: var(--accent);
-}
-body.lang-en .lang-dropdown,
-body.lang-de .lang-dropdown {
-  right: auto;
-  left: 0;
-}
-body.lang-en .lang-dropdown button,
-body.lang-de .lang-dropdown button {
-  text-align: left;
-}
-
 .burger {
   display:none; flex-direction:column; gap:5px;
   background:none; border:none; cursor:pointer; padding:4px;
@@ -520,7 +384,7 @@ body.lang-de .lang-dropdown button {
   gap: 8px;
 }
 .mobile-actions .theme-btn,
-.mobile-actions .lang-btn-mobile {
+.mobile-actions .lang-btn {
   display: flex;
 }
 
@@ -572,14 +436,12 @@ body.lang-de .lang-dropdown button {
   background:rgba(99,143,255,0.08);
   border-right-color:var(--accent);
 }
-body.lang-en .mob-menu a,
-body.lang-de .mob-menu a {
+body.lang-en .mob-menu a {
   border-right: none;
   border-left: 3px solid transparent;
   text-align: left;
 }
-body.lang-en .mob-menu a:hover,
-body.lang-de .mob-menu a:hover {
+body.lang-en .mob-menu a:hover {
   border-left-color: var(--accent);
   border-right-color: transparent;
 }
@@ -808,6 +670,25 @@ p:last-child { margin-bottom:0; }
   66%      { transform:translateY(-5px) rotate(-.5deg); }
 }
 
+.scroll-hint {
+  position:absolute; bottom:36px; left:50%;
+  transform:translateX(-50%);
+  display:flex; flex-direction:column;
+  align-items:center; gap:8px;
+  color:var(--fg3); font-size:.68rem;
+  letter-spacing:2px; text-transform:uppercase;
+}
+.scroll-arrow {
+  width:1px; height:48px;
+  background:linear-gradient(to bottom, var(--accent), transparent);
+  animation:drop 1.8s ease-in-out infinite;
+}
+@keyframes drop {
+  0%   { transform:scaleY(0); transform-origin:top; opacity:1; }
+  50%  { transform:scaleY(1); transform-origin:top; opacity:1; }
+  100% { transform:scaleY(0); transform-origin:bottom; opacity:0; }
+}
+
 /* ═══════════════════════════════════════
    SKILLS STRIP
 ═══════════════════════════════════════ */
@@ -1016,8 +897,7 @@ p:last-child { margin-bottom:0; }
 .dev-step-active .dev-y { color:var(--accent); text-shadow:0 0 4px var(--glow); }
 .dev-step-active .dev-t { color:var(--accent); }
 
-body.lang-en .dev-tl,
-body.lang-de .dev-tl {
+body.lang-en .dev-tl {
   border-right: none;
   border-left: 2px solid var(--border2);
   margin-right: 0;
@@ -1025,8 +905,7 @@ body.lang-de .dev-tl {
   padding-right: 0;
   padding-left: 16px;
 }
-body.lang-en .dev-step::before,
-body.lang-de .dev-step::before {
+body.lang-en .dev-step::before {
   right: auto;
   left: -21px;
 }
@@ -1109,7 +988,7 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
     display: none !important;
   }
   .nav-links .theme-btn,
-  .nav-links .lang-selector {
+  .nav-links .lang-btn {
     display: flex;
   }
 }
@@ -1204,8 +1083,7 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
   }
 }
 
-body.lang-en .logo,
-body.lang-de .logo {
+body.lang-en .logo {
   white-space: normal;
   word-break: break-word;
   display: block;
@@ -1274,25 +1152,12 @@ body.lang-de .logo {
       <li><a data-section="skills" data-key="nav-skills">تخصص ها</a></li>
       <li><a data-section="resume" data-key="nav-resume">تجربیات</a></li>
       <li><a data-section="contact" data-key="nav-contact">تماس</a></li>
-      <li>
-        <div class="lang-selector">
-          <button class="lang-btn" id="langBtn">
-            <span>🇮🇷</span> <span id="currentLangLabel">FA</span> <span>▼</span>
-          </button>
-          <div class="lang-dropdown" id="langDropdown">
-            <button data-lang="fa"><span>🇮🇷</span> فارسی</button>
-            <button data-lang="en"><span>🇬🇧</span> English</button>
-            <button data-lang="de"><span>🇩🇪</span> Deutsch</button>
-          </div>
-        </div>
-      </li>
+      <li><button class="lang-btn" id="langBtn" title="English">🇬🇧 EN</button></li>
       <li><button class="theme-btn" id="themeBtn" title="حالت روشن">☀️</button></li>
     </ul>
     <div class="mobile-actions" style="display:flex;align-items:center;gap:10px">
       <button class="theme-btn" id="themeBtnMob" title="حالت روشن" style="display:none">☀️</button>
-      <div class="lang-selector">
-        <button class="lang-btn-mobile" id="langBtnMob" style="width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:var(--surface);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;">🇮🇷</button>
-      </div>
+      <button class="lang-btn" id="langBtnMob" title="English" style="display:none">🇬🇧</button>
       <button class="burger" id="burger"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -1742,7 +1607,7 @@ function scrollToSection(id){
   }
 }
 
-/* ── TRANSLATIONS (فارسی، انگلیسی، آلمانی) ── */
+/* ── TRANSLATIONS ── */
 const translations = {
   fa: {
     'logo': 'وبسایت شخصی رضا منگری',
@@ -1881,75 +1746,6 @@ const translations = {
     'edu-degree': "Bachelor's in Chemical Engineering", 'edu-univ': 'University of Maragheh', 'edu-location': '📍 Maragheh, Iran',
     'edu-desc': 'Combining analytical and engineering thinking with marketing, business development, and growth strategy is one of the most important features of my professional approach. This background has helped me examine business issues not only from a marketing perspective but also from analysis, process, and optimization viewpoints.',
     'phone-number': '+98 904 665 5304'
-  },
-  de: {
-    'logo': 'Persönliche Website von Reza Mongeri',
-    'nav-home': 'Startseite', 'nav-about': 'Über mich', 'nav-skills': 'Fähigkeiten', 'nav-resume': 'Erfahrung', 'nav-contact': 'Kontakt',
-    'hero-badge': 'Lebenslauf & Kurzvorstellung', 'hero-name': 'Reza Mongeri',
-    'btn-start': 'Start →', 'btn-contact': 'Kontaktiere mich', 'btn-portfolio': 'Portfolio anzeigen',
-    'slide1': 'Digital Marketing Manager', 'slide2': 'Growth Marketing Experte', 'slide3': 'Content-Strategist',
-    'pill1': 'Growth Marketing', 'pill2': 'Content-Strategie', 'pill3': 'B2B Marketing', 'pill4': 'Vertriebsentwicklung', 'pill5': 'Datenanalyse', 'pill6': 'Branding',
-    'about-title': 'Über mich',
-    'about-text1': 'Ich bin Reza Mongeri, ein Digital Marketing Spezialist mit Fokus auf Growth Marketing, Content-Strategie und Geschäftsentwicklung. In den letzten Jahren habe ich mit Marken und Unternehmen aus den Bereichen Architektur, Medizintechnik, Online-Bildung und innovativen Startups zusammengearbeitet und praktische Erfahrungen in der Entwicklung von Wachstumsstrategien, digitalen Kanälen, Social Media Management und der Optimierung von Kundenakquiseprozessen gesammelt.',
-    'about-text2': 'Meine Berufserfahrung umfasst die Gestaltung von Marketing- und Vertriebstrichtern, Content-Strategien, Kundenbeziehungsmanagement, Werbekampagnen und Marktentwicklung in verschiedenen Branchen.',
-    'about-text3': 'Mein Hauptfokus liegt auf nachhaltigem Wachstum für Unternehmen durch die Kombination von Datenanalyse, Performance-Marketing, Content-Strategie und Vertriebsentwicklung. Ich glaube, dass effektives Wachstum dann entsteht, wenn Marketing, Branding und Vertrieb in einem kohärenten, datengesteuerten Weg zusammenarbeiten.',
-    'timeline-title': 'Beruflicher Werdegang auf einen Blick',
-    'year1': '2020', 'year2': '2021 – 2022', 'year3': '2022 – 2023', 'year4': '2023 – 2024', 'year5': '2024 – heute',
-    'timeline1-title': 'Einstieg ins Digital Marketing', 'timeline1-desc': 'Einarbeitung in Content-Produktion, soziale Medien und Online-Marketing-Grundlagen',
-    'timeline2-title': 'Entwicklung von Content & Brand', 'timeline2-desc': 'Content-Produktion, Social Media Management und Markenkommunikation',
-    'timeline3-title': 'Content-Strategie & Performance-Marketing', 'timeline3-desc': 'Entwicklung von Content-Strategien, Durchführung digitaler Kampagnen und Leistungsanalyse',
-    'timeline4-title': 'Growth Marketing & Vertriebsentwicklung', 'timeline4-desc': 'Gestaltung von Marketing- und Vertriebstrichtern, Kundenakquise und Optimierung der Konversionsrate',
-    'timeline5-title': 'Digital Marketing Management & Wachstumsstrategie', 'timeline5-desc': 'Marktentwicklung, Markenmanagement, Entwicklung von Wachstumsstrategien und Zusammenarbeit mit verschiedenen Unternehmen in verschiedenen Branchen',
-    'skills-title': 'Fähigkeiten & Werkzeuge',
-    'skill1': 'Marketing & Growth', 'skill2': 'Strategie & Analytik', 'skill3': 'Content & Medien', 'skill4': 'Geschäftsentwicklung', 'skill5': 'Design & Kreativ', 'skill6': 'Werkzeuge & Plattformen',
-    'resume-title': 'Berufserfahrung',
-    'job1-title': 'Digital Marketing Manager & Wachstumsstratege', 'job1-date': '2022 – heute', 'job1-company': 'Zusammenarbeit mit Marken, Startups und verschiedenen Unternehmen',
-    'job1-bul1': 'Entwicklung und Umsetzung von Wachstumsstrategien für Startups und sich entwickelnde Unternehmen',
-    'job1-bul2': 'Entwicklung und Verwaltung digitaler Marketingkanäle',
-    'job1-bul3': 'Gestaltung und Implementierung von Marketing- und Vertriebstrichtern',
-    'job1-bul4': 'Planung und Durchführung von Werbe- und Content-Kampagnen',
-    'job1-bul5': 'Analyse des Publikumsverhaltens und Optimierung der Konversionsrate',
-    'job1-bul6': 'Entwicklung von Kundenakquisitions-, Bindungs- und Beziehungsprozessen',
-    'job1-bul7': 'Leitung und Führung von Content-Produktions- und Medienteams',
-    'job2-title': 'Architektur- & Branding-Projekte', 'job2-date': '2022 – 2024', 'job2-company': 'Marketingstrategie und Content-Management für mehrere Architekturmarken',
-    'job2-bul1': 'Verwaltung von Marketingstrategie und Content für mehrere Architekturmarken',
-    'job2-bul2': 'Entwicklung der Markenidentität und Verbesserung der digitalen Markenpositionierung',
-    'job2-bul3': 'Entwicklung und Umsetzung von Kundenakquisestrategien',
-    'job2-bul4': 'Planung und Verwaltung sozialer Medien',
-    'job2-bul5': 'Entwicklung von Geschäftskommunikation und Einführung von Dienstleistungen in Zielmärkte',
-    'job3-title': 'Internationale Projekte', 'job3-date': '2023 – heute', 'job3-company': 'Zielmarktentwicklung in Oman, Irak und der Türkei',
-    'job3-bul1': 'Teilnahme an der Akquisition und Entwicklung internationaler Projekte',
-    'job3-bul2': 'Zusammenarbeit bei der Entwicklung von Zielmärkten in Oman, Irak und der Türkei',
-    'job3-bul3': 'Produktion und Verwaltung von Marketinginhalten für internationale Zielgruppen',
-    'job3-bul4': 'Unterstützung von Geschäftsentwicklungsprozessen und kommerziellen Verhandlungen',
-    'job4-title': 'Medizintechnikbereich', 'job4-date': '2023 – 2024', 'job4-company': 'Entwicklung und Durchführung digitaler Marketingkampagnen',
-    'job4-bul1': 'Entwicklung und Durchführung digitaler Marketingkampagnen',
-    'job4-bul2': 'Entwicklung von Content- und Werbestrategien',
-    'job4-bul3': 'Marktanalyse und Identifizierung von Wachstumschancen',
-    'job4-bul4': 'Optimierung von Prozessen zur Gewinnung potenzieller Kunden',
-    'job5-title': 'My-Uni EdTech Startup', 'job5-date': '2021 – 2023', 'job5-company': 'Entwicklung von Wachstumsstrategien',
-    'job5-bul1': 'Entwicklung von Wachstumsstrategien',
-    'job5-bul2': 'Planung und Verwaltung digitaler Marketingaktivitäten',
-    'job5-bul3': 'Entwicklung von Nutzerakquisitions- und Bindungsprozessen',
-    'job5-bul4': 'Gestaltung des Kommunikationswegs vom Publikum zum Kunden',
-    'job5-bul5': 'Teilnahme an der Markenentwicklung und Steigerung der Bekanntheit von Dienstleistungen',
-    'contact-side-title': 'Kontaktinformationen', 'edu-title': 'Bildung', 'achievements-title': 'Wichtige Erfolge',
-    'lang-title': 'Sprachen', 'lang-fa': 'Persisch', 'lang-fa-level': 'Muttersprache', 'lang-en': 'Englisch', 'lang-en-level': 'Mittelstufe B1', 'lang-de': 'Deutsch', 'lang-de-level': 'Mittelstufe B1',
-    'career-title': 'Beruflicher Werdegang',
-    'career-year1': '2020', 'career-title1': 'Einstieg ins Digital Marketing', 'career-desc1': 'Einarbeitung in Content-Produktion, soziale Medien und Online-Marketing-Grundlagen',
-    'career-year2': '2021 – 2022', 'career-title2': 'Entwicklung von Content & Brand', 'career-desc2': 'Content-Produktion, Social Media Management und Markenkommunikation',
-    'career-year3': '2022 – 2023', 'career-title3': 'Content-Strategie & Performance-Marketing', 'career-desc3': 'Entwicklung von Content-Strategien, Durchführung digitaler Kampagnen und Leistungsanalyse',
-    'career-year4': '2023 – 2024', 'career-title4': 'Growth Marketing & Vertriebsentwicklung', 'career-desc4': 'Gestaltung von Marketing- und Vertriebstrichtern, Kundenakquise und Optimierung der Konversionsrate',
-    'career-year5': '2024 – heute', 'career-title5': 'Digital Marketing Management & Wachstumsstrategie', 'career-desc5': 'Marktentwicklung, Markenmanagement, Entwicklung von Wachstumsstrategien und Zusammenarbeit mit verschiedenen Unternehmen in verschiedenen Branchen',
-    'contact-badge': "Lass uns verbinden", 'contact-title': 'Kontakt', 'contact-subtitle': 'Zusammenarbeit, Ideen, Projekte',
-    'contact-text1': 'Wenn Sie an einer Zusammenarbeit im Bereich Digital Marketing, Wachstumsstrategie, Vertriebsentwicklung, Content-Produktion oder Markenentwicklung interessiert sind, freue ich mich darauf, Ihr Projekt oder Unternehmen zu besprechen.',
-    'contact-text2': 'Ich bin immer an der Zusammenarbeit mit innovativen Unternehmen, Startups und Marken interessiert, die nachhaltiges Wachstum und Marktentwicklung anstreben.',
-    'email': 'E-Mail', 'phone': 'Telefon', 'ok-msg': '✅ Nachricht erhalten! Ich werde mich bald bei Ihnen melden.',
-    'form-name': 'Ihr Name', 'form-email': 'E-Mail', 'form-subject': 'Betreff', 'form-message': 'Ihre Nachricht', 'form-submit': 'Nachricht senden →',
-    'subject-marketing': 'Digital Marketing', 'subject-growth': 'Wachstumsstrategie', 'subject-content': 'Content-Produktion', 'subject-other': 'Sonstiges',
-    'edu-degree': 'Bachelor in Chemieingenieurwesen', 'edu-univ': 'Universität Maragheh', 'edu-location': '📍 Maragheh, Iran',
-    'edu-desc': 'Die Kombination von analytischem und ingenieurwissenschaftlichem Denken mit Marketing, Geschäftsentwicklung und Wachstumsstrategie ist eines der wichtigsten Merkmale meines professionellen Ansatzes. Dieser Hintergrund hat mir geholfen, geschäftliche Probleme nicht nur aus Marketingsicht, sondern auch aus Analyse-, Prozess- und Optimierungsperspektive zu betrachten.',
-    'phone-number': '+98 904 665 5304'
   }
 };
 
@@ -1958,38 +1754,10 @@ let currentLang = localStorage.getItem('language') || 'fa';
 function setLanguage(lang) {
   currentLang = lang;
   localStorage.setItem('language', lang);
+  document.body.classList.toggle('lang-en', lang === 'en');
+  document.documentElement.lang = lang === 'fa' ? 'fa' : 'en';
+  document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
   
-  // Remove all language classes
-  document.body.classList.remove('lang-en', 'lang-de');
-  if (lang === 'en') {
-    document.body.classList.add('lang-en');
-    document.documentElement.lang = 'en';
-    document.documentElement.dir = 'ltr';
-  } else if (lang === 'de') {
-    document.body.classList.add('lang-de');
-    document.documentElement.lang = 'de';
-    document.documentElement.dir = 'ltr';
-  } else {
-    document.documentElement.lang = 'fa';
-    document.documentElement.dir = 'rtl';
-  }
-  
-  // Update dropdown button text
-  const currentLangLabel = document.getElementById('currentLangLabel');
-  if (currentLangLabel) {
-    if (lang === 'fa') currentLangLabel.textContent = 'FA';
-    else if (lang === 'en') currentLangLabel.textContent = 'EN';
-    else currentLangLabel.textContent = 'DE';
-  }
-  
-  const langBtnMob = document.getElementById('langBtnMob');
-  if (langBtnMob) {
-    if (lang === 'fa') langBtnMob.innerHTML = '🇮🇷';
-    else if (lang === 'en') langBtnMob.innerHTML = '🇬🇧';
-    else langBtnMob.innerHTML = '🇩🇪';
-  }
-  
-  // Update placeholders
   const nameInput = document.querySelector('input[name="name"]');
   const emailInput = document.querySelector('input[name="email"]');
   const messageTextarea = document.querySelector('textarea[name="message"]');
@@ -1998,20 +1766,15 @@ function setLanguage(lang) {
     if (nameInput) nameInput.placeholder = 'مثلاً علی احمدی';
     if (emailInput) emailInput.placeholder = 'ali@example.com';
     if (messageTextarea) messageTextarea.placeholder = 'بنویس چه کمکی می‌تونم بکنم...';
-  } else if (lang === 'en') {
+  } else {
     if (nameInput) nameInput.placeholder = 'e.g., Ali Ahmadi';
     if (emailInput) emailInput.placeholder = 'ali@example.com';
     if (messageTextarea) messageTextarea.placeholder = 'Write how I can help you...';
-  } else {
-    if (nameInput) nameInput.placeholder = 'z.B. Ali Ahmadi';
-    if (emailInput) emailInput.placeholder = 'ali@example.com';
-    if (messageTextarea) messageTextarea.placeholder = 'Schreiben Sie, wie ich Ihnen helfen kann...';
   }
   
-  // Update all elements with data-key
   document.querySelectorAll('[data-key]').forEach(el => {
     const key = el.getAttribute('data-key');
-    if (translations[lang] && translations[lang][key]) {
+    if (translations[lang][key]) {
       if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
         if (el.getAttribute('name') !== 'name' && el.getAttribute('name') !== 'email' && el.getAttribute('name') !== 'message') {
           el.placeholder = translations[lang][key];
@@ -2024,41 +1787,25 @@ function setLanguage(lang) {
     }
   });
   
+  const langBtn = document.getElementById('langBtn');
+  const langBtnMob = document.getElementById('langBtnMob');
+  if (lang === 'fa') {
+    langBtn.innerHTML = '🇬🇧 EN';
+    langBtnMob.innerHTML = '🇬🇧';
+    langBtn.title = 'English';
+    langBtnMob.title = 'English';
+  } else {
+    langBtn.innerHTML = '🇮🇷 FA';
+    langBtnMob.innerHTML = '🇮🇷';
+    langBtn.title = 'فارسی';
+    langBtnMob.title = 'فارسی';
+  }
+  
   fixLogoOnMobile();
 }
 
-// Language dropdown
-const langBtn = document.getElementById('langBtn');
-const langDropdown = document.getElementById('langDropdown');
-
-langBtn?.addEventListener('click', (e) => {
-  e.stopPropagation();
-  langDropdown.classList.toggle('show');
-});
-
-document.querySelectorAll('.lang-dropdown button').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    const lang = btn.getAttribute('data-lang');
-    if (lang) setLanguage(lang);
-    langDropdown.classList.remove('show');
-  });
-});
-
-document.addEventListener('click', () => {
-  langDropdown?.classList.remove('show');
-});
-
-// Mobile language button
-const langBtnMobElement = document.getElementById('langBtnMob');
-if (langBtnMobElement) {
-  langBtnMobElement.addEventListener('click', () => {
-    const nextLang = currentLang === 'fa' ? 'en' : currentLang === 'en' ? 'de' : 'fa';
-    setLanguage(nextLang);
-  });
-}
-
 function fixLogoOnMobile() {
-  if (window.innerWidth <= 600 && currentLang !== 'fa') {
+  if (window.innerWidth <= 600 && currentLang === 'en') {
     const logo = document.querySelector('.logo');
     if (logo) {
       logo.style.whiteSpace = 'normal';
@@ -2087,6 +1834,13 @@ function fixLogoOnMobile() {
     }
   }
 }
+
+document.getElementById('langBtn').addEventListener('click', () => {
+  setLanguage(currentLang === 'fa' ? 'en' : 'fa');
+});
+document.getElementById('langBtnMob').addEventListener('click', () => {
+  setLanguage(currentLang === 'fa' ? 'en' : 'fa');
+});
 
 setLanguage(currentLang);
 
@@ -2179,6 +1933,7 @@ setTimeout(() => {
 /* ── MOBILE THEME BTN VISIBILITY ── */
 function checkMob(){ 
   themeBtnMob.style.display = window.innerWidth<=960?'flex':'none';
+  langBtnMob.style.display = window.innerWidth<=960?'flex':'none';
   
   if (window.innerWidth <= 600) {
     document.querySelectorAll('.job-date').forEach(el => {
@@ -2204,22 +1959,22 @@ document.getElementById('cForm').addEventListener('submit', async e => {
   e.preventDefault();
   const btn = e.target.querySelector('button[type=submit]');
   const originalText = btn.textContent;
-  btn.textContent = currentLang === 'fa' ? 'در حال ارسال...' : (currentLang === 'en' ? 'Sending...' : 'Senden...');
+  btn.textContent = currentLang === 'fa' ? 'در حال ارسال...' : 'Sending...';
   btn.disabled = true;
   try{
     const r = await fetch(e.target.action, {method:'POST', body:new FormData(e.target), headers:{'Accept':'application/json'}});
     if(r.ok){ 
       e.target.reset(); 
       document.getElementById('okMsg').classList.add('show'); 
-      btn.textContent = currentLang === 'fa' ? 'ارسال شد ✓' : (currentLang === 'en' ? 'Sent ✓' : 'Gesendet ✓');
+      btn.textContent = currentLang === 'fa' ? 'ارسال شد ✓' : 'Sent ✓';
       setTimeout(() => document.getElementById('okMsg').classList.remove('show'), 5000);
       setTimeout(() => { btn.textContent = originalText; btn.disabled = false; }, 3000);
     } else { 
-      btn.textContent = currentLang === 'fa' ? 'خطا — دوباره امتحان کن' : (currentLang === 'en' ? 'Error — Try again' : 'Fehler — Versuchen Sie es erneut');
+      btn.textContent = currentLang === 'fa' ? 'خطا — دوباره امتحان کن' : 'Error — Try again';
       btn.disabled = false; 
     }
   } catch{ 
-    btn.textContent = currentLang === 'fa' ? 'خطا — دوباره امتحان کن' : (currentLang === 'en' ? 'Error — Try again' : 'Fehler — Versuchen Sie es erneut');
+    btn.textContent = currentLang === 'fa' ? 'خطا — دوباره امتحان کن' : 'Error — Try again';
     btn.disabled = false; 
   }
 });
