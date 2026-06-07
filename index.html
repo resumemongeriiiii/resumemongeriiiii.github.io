@@ -1185,8 +1185,9 @@ body.lang-en .logo {
           </div>
         </div>
         <div class="hero-btns">
-          <button class="btn solid" data-key="btn-resume" id="downloadResumeBtn">دانلود رزومه</button>
-          <button class="btn outline" data-section="contact" data-key="btn-contact">مشاهده نمونه‌کارها</button>
+          <button class="btn solid" data-key="btn-start" id="startBtn">شروع →</button>
+          <button class="btn outline" data-key="btn-contact" id="contactBtn">تماس بگیر</button>
+          <button class="btn outline" data-key="btn-portfolio" id="portfolioBtn">مشاهده نمونه‌کارها</button>
         </div>
       </div>
       <div class="hero-visual float-card">
@@ -1350,7 +1351,8 @@ body.lang-en .logo {
         
         <div class="side-box glass"><div class="side-title" data-key="lang-title">زبان‌ها</div>
           <div class="lang-r"><span class="lang-n" data-key="lang-fa">فارسی</span><span class="lang-v" data-key="lang-fa-level">زبان مادری</span></div>
-          <div class="lang-r"><span class="lang-n" data-key="lang-en">انگلیسی</span><span class="lang-v" data-key="lang-en-level">مهارت کاری حرفه‌ای</span></div>
+          <div class="lang-r"><span class="lang-n" data-key="lang-en">انگلیسی</span><span class="lang-v" data-key="lang-en-level">متوسط B1</span></div>
+          <div class="lang-r"><span class="lang-n" data-key="lang-de">آلمانی</span><span class="lang-v" data-key="lang-de-level">متوسط B1</span></div>
         </div>
         
         <div class="side-box glass"><div class="side-title" data-key="career-title">مسیر حرفه‌ای</div>
@@ -1574,11 +1576,36 @@ if (sliderContainer) {
   sliderContainer.addEventListener('mouseleave', () => { slideInterval = setInterval(goToNext, SLIDE_PAUSE); });
 }
 
-/* ── RESUME BUTTON ── */
-document.getElementById('downloadResumeBtn')?.addEventListener('click', (e) => {
-  e.preventDefault();
-  alert('لینک دانلود رزومه به زودی فعال می‌شود.');
+/* ── BUTTON ACTIONS ── */
+document.getElementById('startBtn')?.addEventListener('click', () => {
+  scrollToSection('about');
 });
+
+document.getElementById('contactBtn')?.addEventListener('click', () => {
+  scrollToSection('contact');
+});
+
+document.getElementById('portfolioBtn')?.addEventListener('click', () => {
+  alert('نمونه کارها به زودی اضافه می‌شوند.');
+});
+
+function scrollToSection(id){
+  const section = document.getElementById(id);
+  if(section){
+    const offset = document.getElementById('nav').offsetHeight;
+    let sectionTop = section.offsetTop - offset;
+    
+    if(id === 'skills'){
+      sectionTop = section.offsetTop - offset - 20;
+    }
+    
+    window.scrollTo({top: sectionTop, behavior: 'smooth'});
+    
+    document.querySelectorAll('[data-section]').forEach(el => {
+      el.classList.toggle('active', el.dataset.section === id);
+    });
+  }
+}
 
 /* ── TRANSLATIONS ── */
 const translations = {
@@ -1586,7 +1613,7 @@ const translations = {
     'logo': 'وبسایت شخصی رضا منگری',
     'nav-home': 'خانه', 'nav-about': 'درباره من', 'nav-skills': 'تخصص ها', 'nav-resume': 'تجربیات', 'nav-contact': 'تماس',
     'hero-badge': 'رزومه و معرفی کوتاه', 'hero-name': 'رضا منگری',
-    'btn-resume': 'دانلود رزومه', 'btn-contact': 'مشاهده نمونه‌کارها',
+    'btn-start': 'شروع →', 'btn-contact': 'تماس بگیر', 'btn-portfolio': 'مشاهده نمونه‌کارها',
     'slide1': 'مدیر بازاریابی دیجیتال', 'slide2': 'متخصص Growth Marketing', 'slide3': 'استراتژیست محتوا',
     'pill1': 'Growth Marketing', 'pill2': 'استراتژی محتوا', 'pill3': 'بازاریابی B2B', 'pill4': 'توسعه فروش', 'pill5': 'تحلیل داده', 'pill6': 'برندینگ',
     'about-title': 'درباره من',
@@ -1634,7 +1661,7 @@ const translations = {
     'job5-bul4': 'طراحی مسیر ارتباطی مخاطب تا مشتری',
     'job5-bul5': 'مشارکت در توسعه برند و افزایش آگاهی از خدمات',
     'contact-side-title': 'اطلاعات تماس', 'edu-title': 'تحصیلات', 'achievements-title': 'دستاوردهای کلیدی',
-    'lang-title': 'زبان‌ها', 'lang-fa': 'فارسی', 'lang-fa-level': 'زبان مادری', 'lang-en': 'انگلیسی', 'lang-en-level': 'مهارت کاری حرفه‌ای',
+    'lang-title': 'زبان‌ها', 'lang-fa': 'فارسی', 'lang-fa-level': 'زبان مادری', 'lang-en': 'انگلیسی', 'lang-en-level': 'متوسط B1', 'lang-de': 'آلمانی', 'lang-de-level': 'متوسط B1',
     'career-title': 'مسیر حرفه‌ای',
     'career-year1': '۱۳۹۹', 'career-title1': 'ورود به بازاریابی دیجیتال', 'career-desc1': 'آشنایی با تولید محتوا، شبکه‌های اجتماعی و اصول بازاریابی آنلاین',
     'career-year2': '۱۴۰۰ – ۱۴۰۱', 'career-title2': 'توسعه مهارت‌های محتوا و برند', 'career-desc2': 'تولید محتوا، مدیریت رسانه‌های اجتماعی و توسعه ارتباطات برند',
@@ -1655,7 +1682,7 @@ const translations = {
     'logo': "Reza Mongeri's Personal Website",
     'nav-home': 'Home', 'nav-about': 'About', 'nav-skills': 'Skills', 'nav-resume': 'Experience', 'nav-contact': 'Contact',
     'hero-badge': 'Resume & Short Intro', 'hero-name': 'Reza Mongeri',
-    'btn-resume': 'Download Resume', 'btn-contact': 'View Portfolio',
+    'btn-start': 'Start →', 'btn-contact': 'Contact Me', 'btn-portfolio': 'View Portfolio',
     'slide1': 'Digital Marketing Manager', 'slide2': 'Growth Marketing Expert', 'slide3': 'Content Strategist',
     'pill1': 'Growth Marketing', 'pill2': 'Content Strategy', 'pill3': 'B2B Marketing', 'pill4': 'Sales Development', 'pill5': 'Data Analytics', 'pill6': 'Branding',
     'about-title': 'About Me',
@@ -1703,7 +1730,7 @@ const translations = {
     'job5-bul4': 'Designing audience-to-customer communication path',
     'job5-bul5': 'Participating in brand development and increasing service awareness',
     'contact-side-title': 'Contact Info', 'edu-title': 'Education', 'achievements-title': 'Key Achievements',
-    'lang-title': 'Languages', 'lang-fa': 'Persian', 'lang-fa-level': 'Native', 'lang-en': 'English', 'lang-en-level': 'Professional Working Proficiency',
+    'lang-title': 'Languages', 'lang-fa': 'Persian', 'lang-fa-level': 'Native', 'lang-en': 'English', 'lang-en-level': 'Intermediate B1', 'lang-de': 'German', 'lang-de-level': 'Intermediate B1',
     'career-title': 'Career Path',
     'career-year1': '2020', 'career-title1': 'Entry into Digital Marketing', 'career-desc1': 'Familiarity with content production, social media, and online marketing principles',
     'career-year2': '2021 – 2022', 'career-title2': 'Content & Brand Skills Development', 'career-desc2': 'Content production, social media management, and brand communication development',
@@ -1816,25 +1843,6 @@ document.getElementById('langBtnMob').addEventListener('click', () => {
 });
 
 setLanguage(currentLang);
-
-/* ── SCROLL TO SECTION ── */
-function scrollToSection(id){
-  const section = document.getElementById(id);
-  if(section){
-    const offset = document.getElementById('nav').offsetHeight;
-    let sectionTop = section.offsetTop - offset;
-    
-    if(id === 'skills'){
-      sectionTop = section.offsetTop - offset - 20;
-    }
-    
-    window.scrollTo({top: sectionTop, behavior: 'smooth'});
-    
-    document.querySelectorAll('[data-section]').forEach(el => {
-      el.classList.toggle('active', el.dataset.section === id);
-    });
-  }
-}
 
 /* ── BURGER MENU ── */
 const burger = document.getElementById('burger');
