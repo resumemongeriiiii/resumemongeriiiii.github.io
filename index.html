@@ -293,7 +293,7 @@ nav.solid {
   border-radius: 12px;
   backdrop-filter: blur(20px);
   background: rgba(var(--bg2-rgb), 0.95);
-  min-width: 120px;
+  min-width: 130px;
   z-index: 1000;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
@@ -321,8 +321,9 @@ nav.solid {
   font-family: 'Vazirmatn', sans-serif;
   display: flex;
   align-items: center;
-  gap: 8px;
-  justify-content: center;
+  gap: 10px;
+  justify-content: flex-start;
+  direction: ltr;
 }
 .lang-dropdown-content button:hover {
   background: var(--surface);
@@ -353,6 +354,28 @@ nav.solid {
 .mobile-actions .theme-btn,
 .mobile-actions .lang-btn {
   display: flex;
+}
+
+/* Mobile dropdown fix */
+@media (max-width: 960px) {
+  .lang-dropdown-content {
+    position: fixed;
+    top: auto;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    min-width: auto;
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+  .lang-dropdown-content button {
+    justify-content: center;
+    padding: 14px 16px;
+    font-size: 1rem;
+  }
 }
 
 .mob-menu {
@@ -1264,6 +1287,18 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
             <li data-fa="بهینه‌سازی فرآیند جذب مشتریان بالقوه" data-en="Optimizing potential customer acquisition processes" data-de="Optimierung der Akquiseprozesse potenzieller Kunden">بهینه‌سازی فرآیند جذب مشتریان بالقوه</li>
           </ul>
         </div>
+        
+        <div class="job-entry">
+          <div class="job-head"><span class="job-title-t" data-fa="دستاوردهای کلیدی" data-en="Key Achievements" data-de="Wichtige Erfolge">دستاوردهای کلیدی</span><span class="job-date"><span data-fa="مرور عملکرد" data-en="Performance Review" data-de="Leistungsübersicht">مرور عملکرد</span></span></div>
+          <div class="job-co" data-fa="نتایج و موفقیت‌های حرفه‌ای" data-en="Results and professional achievements" data-de="Ergebnisse und berufliche Erfolge">نتایج و موفقیت‌های حرفه‌ای</div>
+          <ul class="job-buls">
+            <li><strong data-fa="توسعه و مدیریت برندهای معماری:" data-en="Architecture Brand Development & Management:" data-de="Markenentwicklung & Management im Architekturbereich:">توسعه و مدیریت برندهای معماری:</strong> <span data-fa="مدیریت هم‌زمان استراتژی بازاریابی و محتوای چندین برند فعال در حوزه معماری، توسعه حضور دیجیتال و بهبود ارتباطات برند در بازارهای هدف" data-en="Simultaneous management of marketing strategy and content for multiple architecture brands, digital presence development, and improving brand communication in target markets" data-de="Gleichzeitige Verwaltung von Marketingstrategie und Inhalten für mehrere Architekturmarken, Entwicklung der digitalen Präsenz und Verbesserung der Markenkommunikation in Zielmärkten">مدیریت هم‌زمان استراتژی بازاریابی و محتوای چندین برند فعال در حوزه معماری، توسعه حضور دیجیتال و بهبود ارتباطات برند در بازارهای هدف</span></li>
+            <li><strong data-fa="توسعه بازارهای بین‌المللی:" data-en="International Market Development:" data-de="Internationale Marktentwicklung:">توسعه بازارهای بین‌المللی:</strong> <span data-fa="مشارکت در توسعه همکاری‌های تجاری و جذب پروژه‌های بین‌المللی در بازارهای عمان، عراق و ترکیه" data-en="Participation in developing business collaborations and attracting international projects in Oman, Iraq, and Turkey markets" data-de="Beteiligung an der Entwicklung von Geschäftskooperationen und der Akquise internationaler Projekte in Oman, Irak und der Türkei">مشارکت در توسعه همکاری‌های تجاری و جذب پروژه‌های بین‌المللی در بازارهای عمان، عراق و ترکیه</span></li>
+            <li><strong data-fa="بازاریابی تجهیزات پزشکی:" data-en="Medical Equipment Marketing:" data-de="Marketing für Medizintechnik:">بازاریابی تجهیزات پزشکی:</strong> <span data-fa="طراحی و اجرای کمپین‌های بازاریابی دیجیتال و توسعه استراتژی‌های جذب مشتری" data-en="Designing and executing digital marketing campaigns and developing customer acquisition strategies" data-de="Entwicklung und Durchführung digitaler Marketingkampagnen sowie Entwicklung von Kundenakquisestrategien">طراحی و اجرای کمپین‌های بازاریابی دیجیتال و توسعه استراتژی‌های جذب مشتری</span></li>
+            <li><strong data-fa="استارتاپ‌ها و کسب‌وکارهای نوآور:" data-en="Startups & Innovative Businesses:" data-de="Startups & Innovative Unternehmen:">استارتاپ‌ها و کسب‌وکارهای نوآور:</strong> <span data-fa="مشارکت در طراحی استراتژی رشد برای استارتاپ آموزشی مای‌یونی و توسعه ساختارهای بازاریابی، محتوا و ارتباط با مشتری" data-en="Participation in designing growth strategy for MyUni educational startup and developing marketing, content, and customer relationship structures" data-de="Beteiligung an der Entwicklung der Wachstumsstrategie für das Bildungs-Startup MyUni sowie am Aufbau von Marketing-, Content- und Kundenbeziehungsstrukturen">مشارکت در طراحی استراتژی رشد برای استارتاپ آموزشی مای‌یونی و توسعه ساختارهای بازاریابی، محتوا و ارتباط با مشتری</span></li>
+            <li><strong data-fa="توسعه فروش و ارتباط با مشتری:" data-en="Sales Development & Customer Relations:" data-de="Vertriebsentwicklung & Kundenbeziehungen:">توسعه فروش و ارتباط با مشتری:</strong> <span data-fa="طراحی و بهینه‌سازی قیف‌های بازاریابی و فروش، توسعه فرآیندهای جذب، نگهداشت و ارتباط با مشتری" data-en="Designing and optimizing marketing and sales funnels, developing customer acquisition, retention, and relationship processes" data-de="Gestaltung und Optimierung von Marketing- und Vertriebstrichtern, Entwicklung von Kundenakquisitions-, Bindungs- und Beziehungsprozessen">طراحی و بهینه‌سازی قیف‌های بازاریابی و فروش، توسعه فرآیندهای جذب، نگهداشت و ارتباط با مشتری</span></li>
+          </ul>
+        </div>
       </div>
       
       <div>
@@ -1496,15 +1531,14 @@ function updateLanguage(lang) {
   });
 }
 
-// Toggle dropdown
-langBtn.addEventListener('click', (e) => {
+function toggleDropdown(e) {
   e.stopPropagation();
   langDropdown.classList.toggle('show');
-});
-langBtnMob.addEventListener('click', (e) => {
-  e.stopPropagation();
-  langDropdown.classList.toggle('show');
-});
+}
+
+// Toggle dropdown for both desktop and mobile buttons
+langBtn.addEventListener('click', toggleDropdown);
+langBtnMob.addEventListener('click', toggleDropdown);
 
 // Select language from dropdown
 document.querySelectorAll('[data-lang]').forEach(btn => {
@@ -1517,7 +1551,7 @@ document.querySelectorAll('[data-lang]').forEach(btn => {
 
 // Close dropdown when clicking outside
 document.addEventListener('click', (e) => {
-  if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+  if (!langBtn.contains(e.target) && !langBtnMob.contains(e.target) && !langDropdown.contains(e.target)) {
     langDropdown.classList.remove('show');
   }
 });
