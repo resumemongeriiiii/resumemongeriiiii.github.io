@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes"/>
   <title>رضا منگری | مدیر بازاریابی دیجیتال</title>
   <meta name="description" content="پورتفولیو رضا منگری - مدیر بازاریابی دیجیتال، متخصص Growth Marketing و استراتژیست محتوا"/>
   
@@ -276,6 +276,7 @@ nav.solid {
   display:flex; align-items:center; justify-content:center;
   font-size:1.6rem;
   transition:all .2s var(--ease);
+  -webkit-tap-highlight-color: transparent;
 }
 .lang-btn:hover { border-color:var(--border2); background:var(--glow); transform:scale(1.02); }
 .lang-btn:active { transform:scale(0.98); }
@@ -292,7 +293,6 @@ nav.solid {
   border: 1px solid var(--border2);
   border-radius: 12px;
   backdrop-filter: blur(20px);
-  background: rgba(var(--bg2-rgb), 0.95);
   min-width: 130px;
   z-index: 1000;
   overflow: hidden;
@@ -324,6 +324,7 @@ nav.solid {
   gap: 10px;
   justify-content: flex-start;
   direction: ltr;
+  -webkit-tap-highlight-color: transparent;
 }
 .lang-dropdown-content button:hover {
   background: var(--surface);
@@ -336,6 +337,7 @@ nav.solid {
 .burger {
   display:none; flex-direction:column; gap:5px;
   background:none; border:none; cursor:pointer; padding:4px;
+  -webkit-tap-highlight-color: transparent;
 }
 .burger span {
   display:block; width:22px; height:2px;
@@ -356,8 +358,11 @@ nav.solid {
   display: flex;
 }
 
-/* Mobile dropdown fix */
+/* Mobile dropdown fix - position fixed at bottom on mobile */
 @media (max-width: 960px) {
+  .lang-dropdown {
+    position: static;
+  }
   .lang-dropdown-content {
     position: fixed;
     top: auto;
@@ -1504,6 +1509,7 @@ const flagMap = {
 
 function updateLanguage(lang) {
   currentLang = lang;
+  // Update all elements with data-fa, data-en, data-de
   document.querySelectorAll('[data-fa][data-en][data-de]').forEach(el => {
     if (lang === 'fa') {
       el.textContent = el.getAttribute('data-fa');
@@ -1514,6 +1520,7 @@ function updateLanguage(lang) {
     }
   });
   
+  // Update flag buttons
   langBtn.textContent = flagMap[lang];
   langBtnMob.textContent = flagMap[lang];
   localStorage.setItem('language', lang);
@@ -1533,24 +1540,39 @@ function updateLanguage(lang) {
 
 function toggleDropdown(e) {
   e.stopPropagation();
+  e.preventDefault();
   langDropdown.classList.toggle('show');
 }
 
-// Toggle dropdown for both desktop and mobile buttons
+// Add click/touch events for both buttons
 langBtn.addEventListener('click', toggleDropdown);
+langBtn.addEventListener('touchstart', toggleDropdown);
 langBtnMob.addEventListener('click', toggleDropdown);
+langBtnMob.addEventListener('touchstart', toggleDropdown);
 
 // Select language from dropdown
 document.querySelectorAll('[data-lang]').forEach(btn => {
   btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const lang = btn.getAttribute('data-lang');
+    updateLanguage(lang);
+    langDropdown.classList.remove('show');
+  });
+  btn.addEventListener('touchstart', (e) => {
+    e.stopPropagation();
     const lang = btn.getAttribute('data-lang');
     updateLanguage(lang);
     langDropdown.classList.remove('show');
   });
 });
 
-// Close dropdown when clicking outside
+// Close dropdown when clicking/touching outside
 document.addEventListener('click', (e) => {
+  if (!langBtn.contains(e.target) && !langBtnMob.contains(e.target) && !langDropdown.contains(e.target)) {
+    langDropdown.classList.remove('show');
+  }
+});
+document.addEventListener('touchstart', (e) => {
   if (!langBtn.contains(e.target) && !langBtnMob.contains(e.target) && !langDropdown.contains(e.target)) {
     langDropdown.classList.remove('show');
   }
