@@ -344,7 +344,8 @@ p { color:var(--fg2); line-height:1.85; margin-bottom:16px; }
 .ctcts a { display:inline-flex; align-items:center; gap:8px; font-size:.83rem; color:var(--fg2); transition:color .2s; }
 .ctcts a:hover { color:var(--accent); }
 .tl-list { display:flex; flex-direction:column; }
-.tl { display:grid; grid-template-columns:76px 1fr; gap:20px; padding:20px 0; border-bottom:1px solid var(--border); position:relative; }
+.tl { display:grid; grid-template-columns:76px 1fr; gap:20px; padding:20px 0; border-bottom:1px solid var(--border); position:relative; cursor:pointer; transition:all .2s ease; }
+.tl:hover { background:rgba(99,143,255,0.05); transform:translateX(-4px); }
 .tl:last-child { border-bottom:none; }
 .tl-y { font-weight:700; font-size:.72rem; color:var(--fg3); padding-top:3px; }
 .tl.now .tl-y { color:var(--accent); }
@@ -361,6 +362,10 @@ p { color:var(--fg2); line-height:1.85; margin-bottom:16px; }
   color:var(--accent);
   border:1px solid var(--border);
   padding:2px 9px; border-radius:5px;
+  white-space:nowrap;
+}
+@media (max-width:600px){
+  .sk-tag { white-space:normal; font-size:.62rem; }
 }
 .pj-tags { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
 .tag-pill {
@@ -371,7 +376,7 @@ p { color:var(--fg2); line-height:1.85; margin-bottom:16px; }
   padding:3px 12px; border-radius:100px;
 }
 .resume-wrap { display:grid; grid-template-columns:1fr 290px; gap:52px; align-items:start; }
-.job-entry { margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
+.job-entry { margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); scroll-margin-top: 90px; }
 .job-entry:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
 .job-head { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; flex-wrap:wrap; }
 .job-title-t { font-size:.95rem; font-weight:700; color:var(--fg); }
@@ -414,21 +419,6 @@ p { color:var(--fg2); line-height:1.85; margin-bottom:16px; }
 .lang-v { font-size:.72rem; color:var(--fg3); }
 .edu-d { font-size:.88rem; font-weight:700; color:var(--fg); }
 .edu-u { font-size:.78rem; color:var(--accent); margin:3px 0; }
-.dev-tl { border-right:2px solid var(--border2); margin-right:8px; padding-right:16px; }
-.dev-step { margin-bottom:20px; position:relative; }
-.dev-step:last-child { margin-bottom:0; }
-.dev-step::before {
-  content:''; position:absolute; right:-21px; top:5px;
-  width:8px; height:8px; border-radius:50%;
-  background:var(--accent);
-  border:2px solid var(--bg2);
-  box-shadow:0 0 8px var(--accent);
-}
-.dev-y { font-weight:700; font-size:.68rem; color:var(--accent); margin-bottom:4px; }
-.dev-t { font-weight:700; font-size:.82rem; color:var(--fg); margin-bottom:2px; }
-.dev-sub { font-size:.72rem; color:var(--fg2); line-height:1.5; }
-.dev-step-active .dev-y { color:var(--accent); text-shadow:0 0 4px var(--glow); }
-.dev-step-active .dev-t { color:var(--accent); }
 .cms { display:flex; flex-direction:column; gap:14px; margin-top:30px; }
 .cm { display:flex; align-items:center; gap:16px; padding:18px 20px; }
 .cm strong { display:block; font-size:.85rem; color:var(--fg); margin-bottom:2px; }
@@ -664,10 +654,10 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
       </div>
       <div class="tl-list glass" style="padding:24px;border-radius:16px">
         <h3 style="font-size:1.1rem; font-weight:700; margin-bottom:20px; padding-bottom:8px; border-bottom:2px solid var(--accent); display:inline-block;" data-fa="مسیر حرفه‌ای در یک نگاه" data-en="Career Path at a Glance" data-de="Karriereweg auf einen Blick">مسیر حرفه‌ای در یک نگاه</h3>
-        <div class="tl now"><div class="tl-y"><span data-fa="۱۴۰۴ – اکنون" data-en="2025 – Present" data-de="2025 – Heute">۱۴۰۴ – اکنون</span></div><div class="tl-c"><strong data-fa="مدیریت بازاریابی دیجیتال و توسعه فروش" data-en="Digital Marketing & Sales Development Management" data-de="Digital Marketing & Vertriebsentwicklungsmanagement">مدیریت بازاریابی دیجیتال و توسعه فروش</strong><p data-fa="Content Funnel • Growth Marketing" data-en="Content Funnel • Growth Marketing" data-de="Content-Trichter • Growth Marketing">Content Funnel • Growth Marketing</p></div></div>
-        <div class="tl"><div class="tl-y"><span data-fa="۱۴۰۲ – ۱۴۰۴" data-en="2023 – 2025" data-de="2023 – 2025">۱۴۰۲ – ۱۴۰۴</span></div><div class="tl-c"><strong data-fa="مدیریت رشد برند و توسعه بازار" data-en="Brand Growth Management & Market Development" data-de="Markenwachstumsmanagement & Marktentwicklung">مدیریت رشد برند و توسعه بازار</strong><p data-fa="Content Funnel • Growth Marketing" data-en="Content Funnel • Growth Marketing" data-de="Content-Trichter • Growth Marketing">Content Funnel • Growth Marketing</p></div></div>
-        <div class="tl"><div class="tl-y"><span data-fa="۱۴۰۱ – ۱۴۰۲" data-en="2022 – 2023" data-de="2022 – 2023">۱۴۰۱ – ۱۴۰۲</span></div><div class="tl-c"><strong data-fa="استراتژی محتوا و برندینگ" data-en="Content Strategy & Branding" data-de="Content-Strategie & Branding">استراتژی محتوا و برندینگ</strong><p data-fa="برندینگ سازمانی • کپی‌رایتینگ" data-en="Corporate Branding • Copywriting" data-de="Unternehmensbranding • Copywriting">برندینگ سازمانی • کپی‌رایتینگ</p></div></div>
-        <div class="tl"><div class="tl-y"><span data-fa="۱۳۹۹ - ۱۴۰۱" data-en="2020 – 2022" data-de="2020 – 2022">۱۳۹۹ - ۱۴۰۱</span></div><div class="tl-c"><strong data-fa="ورود به بازاریابی دیجیتال و تولید محتوا" data-en="Entry into Digital Marketing & Content Production" data-de="Einstieg ins Digital Marketing & Content-Produktion">ورود به بازاریابی دیجیتال و تولید محتوا</strong><p data-fa="تولید محتوا • فرآیند جذب کاربر • بازاریابی آنلاین" data-en="Content Production • User Acquisition • Online Marketing" data-de="Content-Produktion • Nutzerakquise • Online-Marketing">تولید محتوا • فرآیند جذب کاربر • بازاریابی آنلاین</p></div></div>
+        <div class="tl now" data-target="job-senior"><div class="tl-y"><span data-fa="۱۴۰۴ – اکنون" data-en="2025 – Present" data-de="2025 – Heute">۱۴۰۴ – اکنون</span></div><div class="tl-c"><strong data-fa="مدیریت بازاریابی دیجیتال و توسعه فروش" data-en="Digital Marketing & Sales Development Management" data-de="Digital Marketing & Vertriebsentwicklungsmanagement">مدیریت بازاریابی دیجیتال و توسعه فروش</strong><p data-fa="Performance Marketing • B2B & B2C" data-en="Performance Marketing • B2B & B2C" data-de="Performance Marketing • B2B & B2C">Performance Marketing • B2B & B2C</p></div></div>
+        <div class="tl" data-target="job-brand"><div class="tl-y"><span data-fa="۱۴۰۲ – ۱۴۰۴" data-en="2023 – 2025" data-de="2023 – 2025">۱۴۰۲ – ۱۴۰۴</span></div><div class="tl-c"><strong data-fa="مدیریت رشد برند و توسعه بازار" data-en="Brand Growth Management & Market Development" data-de="Markenwachstumsmanagement & Marktentwicklung">مدیریت رشد برند و توسعه بازار</strong><p data-fa="Content Funnel • Growth Marketing" data-en="Content Funnel • Growth Marketing" data-de="Content-Trichter • Growth Marketing">Content Funnel • Growth Marketing</p></div></div>
+        <div class="tl" data-target="job-consultant"><div class="tl-y"><span data-fa="۱۴۰۱ – ۱۴۰۲" data-en="2022 – 2023" data-de="2022 – 2023">۱۴۰۱ – ۱۴۰۲</span></div><div class="tl-c"><strong data-fa="استراتژی محتوا و برندینگ" data-en="Content Strategy & Branding" data-de="Content-Strategie & Branding">استراتژی محتوا و برندینگ</strong><p data-fa="برندینگ سازمانی • کپی‌رایتینگ" data-en="Corporate Branding • Copywriting" data-de="Unternehmensbranding • Copywriting">برندینگ سازمانی • کپی‌رایتینگ</p></div></div>
+        <div class="tl" data-target="job-growth"><div class="tl-y"><span data-fa="۱۳۹۹ - ۱۴۰۱" data-en="2020 – 2022" data-de="2020 – 2022">۱۳۹۹ - ۱۴۰۱</span></div><div class="tl-c"><strong data-fa="ورود به بازاریابی دیجیتال و تولید محتوا" data-en="Entry into Digital Marketing & Content Production" data-de="Einstieg ins Digital Marketing & Content-Produktion">ورود به بازاریابی دیجیتال و تولید محتوا</strong><p data-fa="تولید محتوا • فرآیند جذب کاربر • بازاریابی آنلاین" data-en="Content Production • User Acquisition • Online Marketing" data-de="Content-Produktion • Nutzerakquise • Online-Marketing">تولید محتوا • فرآیند جذب کاربر • بازاریابی آنلاین</p></div></div>
       </div>
     </div>
   </div>
@@ -677,12 +667,12 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
   <div class="wrap">
     <h2 data-fa="تخصص‌ها و ابزارها" data-en="Skills & Tools" data-de="Fähigkeiten & Werkzeuge">تخصص‌ها و ابزارها</h2>
     <div class="sk-grid">
-      <div class="sk-block glass"><div class="sk-ico">📈</div><h3 data-fa="بازاریابی و رشد" data-en="Marketing & Growth" data-de="Marketing & Wachstum">بازاریابی و رشد</h3><div class="sk-tags"><span class="sk-tag" data-fa="بازاریابی رشد" data-en="Growth Marketing" data-de="Growth Marketing">بازاریابی رشد</span><span class="sk-tag" data-fa="بازاریابی عملکردی" data-en="Performance Marketing" data-de="Performance Marketing">بازاریابی عملکردی</span><span class="sk-tag" data-fa="تولید سرنخ" data-en="Lead Generation" data-de="Lead-Generierung">تولید سرنخ</span><span class="sk-tag" data-fa="بهینه‌سازی تبدیل" data-en="Conversion Optimization" data-de="Conversion-Optimierung">بهینه‌سازی تبدیل</span><span class="sk-tag" data-fa="طراحی قیف" data-en="Funnel Design" data-de="Trichter-Design">طراحی قیف</span></div></div>
-      <div class="sk-block glass"><div class="sk-ico">🎯</div><h3 data-fa="استراتژی و تحلیل" data-en="Strategy & Analytics" data-de="Strategie & Analyse">استراتژی و تحلیل</h3><div class="sk-tags"><span class="sk-tag" data-fa="تحقیقات بازار" data-en="Market Research" data-de="Marktforschung">تحقیقات بازار</span><span class="sk-tag" data-fa="تحلیل رقبا" data-en="Competitive Analysis" data-de="Wettbewerbsanalyse">تحلیل رقبا</span><span class="sk-tag" data-fa="نقشه سفر مشتری" data-en="Customer Journey Mapping" data-de="Customer Journey Mapping">نقشه سفر مشتری</span><span class="sk-tag" data-fa="استراتژی ورود به بازار" data-en="Go-To-Market Strategy" data-de="Go-To-Market-Strategie">استراتژی ورود به بازار</span><span class="sk-tag" data-fa="تصمیم‌گیری مبتنی بر داده" data-en="Data-Driven Decision Making" data-de="Datengesteuerte Entscheidungsfindung">تصمیم‌گیری مبتنی بر داده</span></div></div>
-      <div class="sk-block glass"><div class="sk-ico">✍️</div><h3 data-fa="محتوا و رسانه" data-en="Content & Media" data-de="Content & Medien">محتوا و رسانه</h3><div class="sk-tags"><span class="sk-tag" data-fa="استراتژی محتوا" data-en="Content Strategy" data-de="Content-Strategie">استراتژی محتوا</span><span class="sk-tag" data-fa="بازاریابی محتوایی" data-en="Content Marketing" data-de="Content-Marketing">بازاریابی محتوایی</span><span class="sk-tag" data-fa="مدیریت شبکه‌های اجتماعی" data-en="Social Media Management" data-de="Social Media Management">مدیریت شبکه‌های اجتماعی</span><span class="sk-tag" data-fa="داستان‌سرایی برند" data-en="Brand Storytelling" data-de="Marken-Storytelling">داستان‌سرایی برند</span><span class="sk-tag" data-fa="تولید محتوا" data-en="Copywriting" data-de="Copywriting">تولید محتوا</span></div></div>
-      <div class="sk-block glass"><div class="sk-ico">🚀</div><h3 data-fa="توسعه کسب‌وکار و فروش" data-en="Business Development & Sales" data-de="Geschäftsentwicklung & Vertrieb">توسعه کسب‌وکار و فروش</h3><div class="sk-tags"><span class="sk-tag" data-fa="توسعه فروش" data-en="Sales Development" data-de="Vertriebsentwicklung">توسعه فروش</span><span class="sk-tag" data-fa="مدیریت CRM" data-en="CRM Management" data-de="CRM-Management">مدیریت CRM</span><span class="sk-tag" data-fa="بخش‌بندی مخاطبان" data-en="Audience Segmentation" data-de="Zielgruppensegmentierung">بخش‌بندی مخاطبان</span><span class="sk-tag" data-fa="استراتژی رشد کسب‌وکار" data-en="Business Growth Strategy" data-de="Wachstumsstrategie">استراتژی رشد کسب‌وکار</span></div></div>
-      <div class="sk-block glass"><div class="sk-ico">🎨</div><h3 data-fa="طراحی و خلاقیت" data-en="Design & Creative" data-de="Design & Kreativität">طراحی و خلاقیت</h3><div class="sk-tags"><span class="sk-tag" data-fa="طراحی گرافیک" data-en="Graphic Design" data-de="Grafikdesign">طراحی گرافیک</span><span class="sk-tag" data-fa="تدوین ویدیو" data-en="Video Editing" data-de="Videobearbeitung">تدوین ویدیو</span><span class="sk-tag" data-fa="موشن گرافیک" data-en="Motion Graphics" data-de="Motion Graphics">موشن گرافیک</span></div></div>
-      <div class="sk-block glass"><div class="sk-ico">🛠️</div><h3 data-fa="ابزارها" data-en="Tools" data-de="Werkzeuge">ابزارها</h3><div class="sk-tags"><span class="sk-tag">Google Analytics</span><span class="sk-tag">Meta Business Suite</span><span class="sk-tag">ChatGPT</span><span class="sk-tag">Claude</span><span class="sk-tag">Gemini</span></div></div>
+      <div class="sk-block glass"><div class="sk-ico">📈</div><h3 data-fa="بازاریابی و رشد" data-en="Marketing & Growth" data-de="Marketing & Wachstum">بازاریابی و رشد</h3><div class="sk-tags" id="sk-tags-marketing"></div></div>
+      <div class="sk-block glass"><div class="sk-ico">🎯</div><h3 data-fa="استراتژی و تحلیل" data-en="Strategy & Analytics" data-de="Strategie & Analyse">استراتژی و تحلیل</h3><div class="sk-tags" id="sk-tags-strategy"></div></div>
+      <div class="sk-block glass"><div class="sk-ico">✍️</div><h3 data-fa="محتوا و رسانه" data-en="Content & Media" data-de="Content & Medien">محتوا و رسانه</h3><div class="sk-tags" id="sk-tags-content"></div></div>
+      <div class="sk-block glass"><div class="sk-ico">🚀</div><h3 data-fa="توسعه کسب‌وکار و فروش" data-en="Business Development & Sales" data-de="Geschäftsentwicklung & Vertrieb">توسعه کسب‌وکار و فروش</h3><div class="sk-tags" id="sk-tags-bizdev"></div></div>
+      <div class="sk-block glass"><div class="sk-ico">🎨</div><h3 data-fa="طراحی و خلاقیت" data-en="Design & Creative" data-de="Design & Kreativität">طراحی و خلاقیت</h3><div class="sk-tags" id="sk-tags-design"></div></div>
+      <div class="sk-block glass"><div class="sk-ico">🛠️</div><h3 data-fa="ابزارها و پلتفرم‌ها" data-en="Tools & Platforms" data-de="Werkzeuge & Plattformen">ابزارها و پلتفرم‌ها</h3><div class="sk-tags" id="sk-tags-tools"></div></div>
     </div>
   </div>
 </section>
@@ -693,37 +683,67 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
       <div>
         <h2 data-fa="تجربه حرفه‌ای" data-en="Professional Experience" data-de="Berufserfahrung">تجربه حرفه‌ای</h2>
         
-        <div class="job-entry">
+        <div id="job-senior" class="job-entry" style="scroll-margin-top: 90px;">
           <div class="job-head"><span class="job-title-t" data-fa="کارشناس ارشد بازاریابی دیجیتال و توسعه فروش" data-en="Senior Digital Marketing & Sales Development Specialist" data-de="Senior Digital Marketing & Vertriebsentwicklungsspezialist">کارشناس ارشد بازاریابی دیجیتال و توسعه فروش</span><span class="job-date"><span data-fa="مهر۱۴۰۴- هم اکنون" data-en="Oct 2025 - Present" data-de="Okt 2025 - Heute">مهر۱۴۰۴- هم اکنون</span></span></div>
           <div class="job-co" data-fa="تجهیزات پزشکی ایران" data-en="Iran Medical Equipment" data-de="Iran Medizintechnik">تجهیزات پزشکی ایران</div>
-          <div class="pj-tags"><span class="tag-pill">Performance Marketing</span><span class="tag-pill">B2B & B2C</span><span class="tag-pill">Sales Development</span><span class="tag-pill">Email Marketing</span><span class="tag-pill">Direct Marketing</span><span class="tag-pill">Google Analytics</span></div>
+          <div class="pj-tags"><span class="tag-pill">Performance Marketing</span><span class="tag-pill">B2B & B2C</span><span class="tag-pill">Sales Development</span><span class="tag-pill">Email Marketing</span><span class="tag-pill">Direct Marketing</span><span class="tag-pill">Google Analytics (GA4)</span></div>
           <ul class="job-buls">
             <li data-fa="هدایت فرآیند طراحی و اجرای استراتژی‌های بازاریابی دیجیتال در راستای اهداف تجاری و توسعه بازار." data-en="Leading the process of designing and implementing digital marketing strategies aligned with business goals and market development." data-de="Leitung des Prozesses zur Entwicklung und Umsetzung von Digital Marketing Strategien im Einklang mit Geschäftszielen und Marktentwicklung.">هدایت فرآیند طراحی و اجرای استراتژی‌های بازاریابی دیجیتال در راستای اهداف تجاری و توسعه بازار.</li>
-            <li data-fa="طراحی، مدیریت و بهینه‌سازی کمپین‌های بازاریابی چندکاناله بر اساس شاخص‌های کلیدی عملکرد." data-en="Designing, managing, and optimizing multi-channel marketing campaigns based on key performance indicators." data-de="Entwicklung, Verwaltung und Optimierung von Multi-Channel-Marketingkampagnen basierend auf KPIs.">طراحی، مدیریت و بهینه‌سازی کمپین‌های بازاریابی چندکاناله بر اساس شاخص‌های کلیدی عملکرد.</li>
-            <li data-fa="استقرار و توسعه فرآیندهای CRM با هدف افزایش کیفیت تعامل با مشتریان." data-en="Establishing and developing CRM processes to enhance customer interaction quality." data-de="Einführung und Entwicklung von CRM-Prozessen zur Verbesserung der Kundeninteraktionsqualität.">استقرار و توسعه فرآیندهای CRM با هدف افزایش کیفیت تعامل با مشتریان.</li>
+            <li data-fa="راهبری برنامه‌های جذب، تبدیل و حفظ مشتری با رویکرد داده‌محور و بهبود مستمر تجربه مشتری." data-en="Leading customer acquisition, conversion, and retention programs with a data-driven approach and continuous improvement of customer experience." data-de="Leitung von Kundenakquise-, Konvertierungs- und Bindungsprogrammen mit datengesteuertem Ansatz und kontinuierlicher Verbesserung der Kundenerfahrung.">راهبری برنامه‌های جذب، تبدیل و حفظ مشتری با رویکرد داده‌محور و بهبود مستمر تجربه مشتری.</li>
+            <li data-fa="طراحی، مدیریت و بهینه‌سازی کمپین‌های بازاریابی چندکاناله (Digital، Email و Direct Marketing) بر اساس شاخص‌های کلیدی عملکرد." data-en="Designing, managing, and optimizing multi-channel marketing campaigns (Digital, Email, and Direct Marketing) based on key performance indicators." data-de="Entwicklung, Verwaltung und Optimierung von Multi-Channel-Marketingkampagnen (Digital, E-Mail und Direktmarketing) basierend auf KPIs.">طراحی، مدیریت و بهینه‌سازی کمپین‌های بازاریابی چندکاناله (Digital، Email و Direct Marketing) بر اساس شاخص‌های کلیدی عملکرد.</li>
+            <li data-fa="استقرار و توسعه فرآیندهای CRM با هدف افزایش کیفیت تعامل با مشتریان و بهبود چرخه عمر مشتری." data-en="Establishing and developing CRM processes to enhance customer interaction quality and improve customer lifecycle." data-de="Einführung und Entwicklung von CRM-Prozessen zur Verbesserung der Kundeninteraktionsqualität und des Kundenlebenszyklus.">استقرار و توسعه فرآیندهای CRM با هدف افزایش کیفیت تعامل با مشتریان و بهبود چرخه عمر مشتری.</li>
+            <li data-fa="تحلیل رفتار مشتری، ارزیابی عملکرد کمپین‌ها و ارائه راهکارهای بهینه‌سازی برای افزایش اثربخشی فعالیت‌های بازاریابی." data-en="Analyzing customer behavior, evaluating campaign performance, and providing optimization solutions to increase marketing effectiveness." data-de="Analyse des Kundenverhaltens, Bewertung der Kampagnenleistung und Bereitstellung von Optimierungslösungen zur Steigerung der Marketingeffektivität.">تحلیل رفتار مشتری، ارزیابی عملکرد کمپین‌ها و ارائه راهکارهای بهینه‌سازی برای افزایش اثربخشی فعالیت‌های بازاریابی.</li>
+            <li data-fa="همکاری میان‌بخشی با تیم فروش و مدیریت در راستای هم‌راستاسازی اهداف بازاریابی، فروش و توسعه کسب‌وکار." data-en="Cross-functional collaboration with sales team and management to align marketing, sales, and business development goals." data-de="Funktionsübergreifende Zusammenarbeit mit dem Vertriebsteam und der Geschäftsleitung zur Abstimmung von Marketing-, Vertriebs- und Geschäftsentwicklungszielen.">همکاری میان‌بخشی با تیم فروش و مدیریت در راستای هم‌راستاسازی اهداف بازاریابی، فروش و توسعه کسب‌وکار.</li>
+            <li data-fa="تهیه گزارش‌های مدیریتی و ارائه تحلیل‌های کاربردی برای پشتیبانی از تصمیم‌گیری‌های استراتژیک." data-en="Preparing management reports and providing practical analyses to support strategic decision-making." data-de="Erstellung von Managementberichten und Bereitstellung praktischer Analysen zur Unterstützung strategischer Entscheidungen.">تهیه گزارش‌های مدیریتی و ارائه تحلیل‌های کاربردی برای پشتیبانی از تصمیم‌گیری‌های استراتژیک.</li>
             <li data-fa="شناسایی فرصت‌های رشد، توسعه بازار و بهبود مزیت رقابتی سازمان." data-en="Identifying growth opportunities, market development, and improving competitive advantage." data-de="Identifizierung von Wachstumschancen, Marktentwicklung und Verbesserung des Wettbewerbsvorteils.">شناسایی فرصت‌های رشد، توسعه بازار و بهبود مزیت رقابتی سازمان.</li>
           </ul>
         </div>
         
-        <div class="job-entry">
+        <div id="job-brand" class="job-entry" style="scroll-margin-top: 90px;">
           <div class="job-head"><span class="job-title-t" data-fa="مدیر بازاریابی و توسعه برند" data-en="Marketing & Brand Development Manager" data-de="Marketing & Markenentwicklungsmanager">مدیر بازاریابی و توسعه برند</span><span class="job-date"><span data-fa="اردیبهشت ۱۴۰۲ - اسفند ۱۴۰۴" data-en="May 2023 - March 2025" data-de="Mai 2023 - März 2025">اردیبهشت ۱۴۰۲ - اسفند ۱۴۰۴</span></span></div>
-          <div class="job-co" data-fa="استودیو معماری رحیم دبی / استودیو معماری حمید نبئی / مجموعه آجرباشی" data-en="Rahim Dubai Architecture Studio / Hamid Nabaei Architecture Studio / Ajorbashi Collection" data-de="Rahim Dubai Architekturstudio / Hamid Nabaei Architekturstudio / Ajorbashi Kollektion">استودیو معماری رحیم دبی / استودیو معماری حمید نبئی / مجموعه آجرباشی</div>
-          <div class="pj-tags"><span class="tag-pill">Brand Strategy</span><span class="tag-pill">Content Funnel</span><span class="tag-pill">Influencer Marketing</span><span class="tag-pill">International Market</span></div>
+          <div class="job-co" data-fa="استودیو معماری رحیم دبی / استودیو معماری حمید نبئی / مجموعه آجرباشی — معماری و دکوراسیون داخلی و خارجی" data-en="Rahim Dubai Architecture Studio / Hamid Nabaei Architecture Studio / Ajorbashi Collection — Interior & Exterior Architecture and Decoration" data-de="Rahim Dubai Architekturstudio / Hamid Nabaei Architekturstudio / Ajorbashi Kollektion — Innen- und Außenarchitektur und Dekoration">استودیو معماری رحیم دبی / استودیو معماری حمید نبئی / مجموعه آجرباشی — معماری و دکوراسیون داخلی و خارجی</div>
+          <div class="pj-tags"><span class="tag-pill">Brand Strategy</span><span class="tag-pill">Content Funnel</span><span class="tag-pill">Influencer Marketing</span><span class="tag-pill">Sales Pipeline</span><span class="tag-pill">International Market Development</span></div>
           <ul class="job-buls">
             <li data-fa="هدایت استراتژی بازاریابی و توسعه برند برای چند مجموعه به‌صورت هم‌زمان." data-en="Leading marketing strategy and brand development for multiple collections simultaneously." data-de="Leitung der Marketingstrategie und Markenentwicklung für mehrere Kollektionen gleichzeitig.">هدایت استراتژی بازاریابی و توسعه برند برای چند مجموعه به‌صورت هم‌زمان.</li>
-            <li data-fa="طراحی و توسعه قیف بازاریابی از مرحله آگاهی تا تبدیل مشتری." data-en="Designing and developing the marketing funnel from awareness to customer conversion." data-de="Entwicklung des Marketing-Trichters von der Bekanntheit bis zur Kundenkonvertierung.">طراحی و توسعه قیف بازاریابی از مرحله آگاهی تا تبدیل مشتری.</li>
+            <li data-fa="طراحی و توسعه Marketing Funnel از مرحله آگاهی تا تبدیل مشتری." data-en="Designing and developing the Marketing Funnel from awareness to customer conversion." data-de="Entwicklung des Marketing-Trichters von der Bekanntheit bis zur Kundenkonvertierung.">طراحی و توسعه Marketing Funnel از مرحله آگاهی تا تبدیل مشتری.</li>
+            <li data-fa="برنامه‌ریزی استراتژی محتوایی بر اساس تحلیل بازار، رفتار مخاطبان و اهداف تجاری هر برند." data-en="Planning content strategy based on market analysis, audience behavior, and business goals of each brand." data-de="Planung der Content-Strategie basierend auf Marktanalyse, Zielgruppenverhalten und Geschäftszielen jeder Marke.">برنامه‌ریزی استراتژی محتوایی بر اساس تحلیل بازار، رفتار مخاطبان و اهداف تجاری هر برند.</li>
+            <li data-fa="مدیریت و راهبری تیم تولید محتوا، طراحی گرافیک، ویدئو و کپی‌رایتینگ با هدف حفظ یکپارچگی برند." data-en="Managing and leading the content production, graphic design, video, and copywriting team to maintain brand integrity." data-de="Leitung des Content-Produktions-, Grafikdesign-, Video- und Copywriting-Teams zur Wahrung der Markenintegrität.">مدیریت و راهبری تیم تولید محتوا، طراحی گرافیک، ویدئو و کپی‌رایتینگ با هدف حفظ یکپارچگی برند.</li>
+            <li data-fa="طراحی و اجرای کمپین‌های دیجیتال با تمرکز بر توسعه بازار، جذب مشتری و افزایش تعامل مخاطبان." data-en="Designing and executing digital campaigns focusing on market development, customer acquisition, and audience engagement." data-de="Entwicklung und Durchführung digitaler Kampagnen mit Fokus auf Marktentwicklung, Kundenakquise und Zielgruppenbindung.">طراحی و اجرای کمپین‌های دیجیتال با تمرکز بر توسعه بازار، جذب مشتری و افزایش تعامل مخاطبان.</li>
             <li data-fa="توسعه همکاری‌های بین‌المللی و ایجاد فرصت‌های جدید برای جذب پروژه‌های خارجی." data-en="Developing international collaborations and creating new opportunities for attracting foreign projects." data-de="Entwicklung internationaler Kooperationen und Schaffung neuer Möglichkeiten zur Akquise ausländischer Projekte.">توسعه همکاری‌های بین‌المللی و ایجاد فرصت‌های جدید برای جذب پروژه‌های خارجی.</li>
+            <li data-fa="تحلیل مستمر عملکرد کمپین‌ها و بهینه‌سازی فرآیندهای بازاریابی بر اساس داده‌های واقعی." data-en="Continuous analysis of campaign performance and optimization of marketing processes based on real data." data-de="Kontinuierliche Analyse der Kampagnenleistung und Optimierung von Marketingprozessen basierend auf realen Daten.">تحلیل مستمر عملکرد کمپین‌ها و بهینه‌سازی فرآیندهای بازاریابی بر اساس داده‌های واقعی.</li>
+            <li data-fa="ارائه راهکارهای توسعه کسب‌وکار و افزایش سهم بازار از طریق بازاریابی دیجیتال." data-en="Providing business development solutions and increasing market share through digital marketing." data-de="Bereitstellung von Lösungen für die Geschäftsentwicklung und Steigerung des Marktanteils durch digitales Marketing.">ارائه راهکارهای توسعه کسب‌وکار و افزایش سهم بازار از طریق بازاریابی دیجیتال.</li>
           </ul>
         </div>
         
-        <div class="job-entry">
+        <div id="job-consultant" class="job-entry" style="scroll-margin-top: 90px;">
           <div class="job-head"><span class="job-title-t" data-fa="مشاور رشد دیجیتال و طراح گرافیک" data-en="Digital Growth Consultant & Graphic Designer" data-de="Digital Growth Berater & Grafikdesigner">مشاور رشد دیجیتال و طراح گرافیک</span><span class="job-date"><span data-fa="آبان۱۴۰۱-بهمن۱۴۰۴" data-en="Nov 2022 - Feb 2025" data-de="Nov 2022 - Feb 2025">آبان۱۴۰۱-بهمن۱۴۰۴</span></span></div>
           <div class="job-co" data-fa="دانشگاه سراسری مراغه / تبریز" data-en="University of Maragheh / Tabriz" data-de="Universität Maragheh / Tabriz">دانشگاه سراسری مراغه / تبریز</div>
           <div class="pj-tags"><span class="tag-pill">Digital Strategy</span><span class="tag-pill">Copywriting</span><span class="tag-pill">Brand Consistency</span><span class="tag-pill">Academic Marketing</span></div>
           <ul class="job-buls">
             <li data-fa="تدوین استراتژی حضور دیجیتال و طراحی نقشه راه محتوایی برای رسانه‌های رسمی دانشگاه." data-en="Developing digital presence strategy and content roadmap for official university media." data-de="Entwicklung der Digitalpräsenzstrategie und Content-Roadmap für offizielle Universitätsmedien.">تدوین استراتژی حضور دیجیتال و طراحی نقشه راه محتوایی برای رسانه‌های رسمی دانشگاه.</li>
+            <li data-fa="برنامه‌ریزی و مدیریت تقویم محتوایی بر اساس اهداف ارتباطی، مناسبت‌ها و رویدادهای دانشگاهی." data-en="Planning and managing content calendar based on communication goals, occasions, and academic events." data-de="Planung und Verwaltung des Content-Kalenders basierend auf Kommunikationszielen, Anlässen und akademischen Veranstaltungen.">برنامه‌ریزی و مدیریت تقویم محتوایی بر اساس اهداف ارتباطی، مناسبت‌ها و رویدادهای دانشگاهی.</li>
             <li data-fa="طراحی و تولید محتوای گرافیکی و تبلیغاتی با هدف تقویت هویت برند دانشگاه." data-en="Designing and producing graphic and advertising content to strengthen university brand identity." data-de="Gestaltung und Produktion von grafischen und Werbeinhalten zur Stärkung der Markenidentität der Universität.">طراحی و تولید محتوای گرافیکی و تبلیغاتی با هدف تقویت هویت برند دانشگاه.</li>
+            <li data-fa="تدوین محتوای متنی و کپی‌رایتینگ برای رسانه‌های دیجیتال و شبکه‌های اجتماعی." data-en="Developing written content and copywriting for digital media and social networks." data-de="Entwicklung von Textinhalten und Copywriting für digitale Medien und soziale Netzwerke.">تدوین محتوای متنی و کپی‌رایتینگ برای رسانه‌های دیجیتال و شبکه‌های اجتماعی.</li>
+            <li data-fa="ارائه راهکارهای توسعه تعامل مخاطبان و افزایش اثربخشی فعالیت‌های رسانه‌ای." data-en="Providing solutions to develop audience engagement and increase effectiveness of media activities." data-de="Bereitstellung von Lösungen zur Entwicklung des Zielgruppenengagements und Steigerung der Effektivität von Medienaktivitäten.">ارائه راهکارهای توسعه تعامل مخاطبان و افزایش اثربخشی فعالیت‌های رسانه‌ای.</li>
+            <li data-fa="همکاری میان‌بخشی با واحدهای مختلف دانشگاه در اجرای پروژه‌های ارتباطات دیجیتال." data-en="Cross-functional collaboration with various university departments in implementing digital communication projects." data-de="Funktionsübergreifende Zusammenarbeit mit verschiedenen Universitätsabteilungen bei der Umsetzung digitaler Kommunikationsprojekte.">همکاری میان‌بخشی با واحدهای مختلف دانشگاه در اجرای پروژه‌های ارتباطات دیجیتال.</li>
+            <li data-fa="تحلیل عملکرد رسانه‌ها و ارائه پیشنهادهای بهبود مبتنی بر داده." data-en="Analyzing media performance and providing data-based improvement suggestions." data-de="Analyse der Medienleistung und Bereitstellung datenbasierter Verbesserungsvorschläge.">تحلیل عملکرد رسانه‌ها و ارائه پیشنهادهای بهبود مبتنی بر داده.</li>
             <li data-fa="مشارکت در توسعه جایگاه برند دانشگاه در فضای دیجیتال." data-en="Participating in developing the university's brand position in digital space." data-de="Beteiligung an der Entwicklung der Markenposition der Universität im digitalen Raum.">مشارکت در توسعه جایگاه برند دانشگاه در فضای دیجیتال.</li>
+          </ul>
+        </div>
+
+        <div id="job-growth" class="job-entry" style="scroll-margin-top: 90px;">
+          <div class="job-head"><span class="job-title-t" data-fa="متخصص Growth Marketing و پشتیبان پلتفرم" data-en="Growth Marketing Specialist & Platform Support" data-de="Growth Marketing Spezialist & Plattform-Support">متخصص Growth Marketing و پشتیبان پلتفرم</span><span class="job-date"><span data-fa="آبان ۱۳۹۹ - شهریور ۱۴۰۱" data-en="Nov 2020 - Sep 2022" data-de="Nov. 2020 - Sep. 2022">آبان ۱۳۹۹ - شهریور ۱۴۰۱</span></span></div>
+          <div class="job-co" data-fa="استارتاپ آموزشی مای‌یونی" data-en="MyUni Educational Startup" data-de="MyUni Bildungs-Startup">استارتاپ آموزشی مای‌یونی</div>
+          <div class="pj-tags"><span class="tag-pill">Go-to-Market</span><span class="tag-pill">EdTech</span><span class="tag-pill">Growth Hacking</span><span class="tag-pill">Customer Success</span><span class="tag-pill">Cold Outreach</span></div>
+          <ul class="job-buls">
+            <li data-fa="مشارکت در تدوین و اجرای استراتژی ورود به بازار (Go-To-Market Strategy) برای توسعه پلتفرم آموزشی." data-en="Participated in developing and executing the Go-To-Market Strategy for the educational platform development." data-de="Teilnahme an der Entwicklung und Umsetzung der Go-To-Market-Strategie für die Entwicklung der Bildungsplattform.">مشارکت در تدوین و اجرای استراتژی ورود به بازار (Go-To-Market Strategy) برای توسعه پلتفرم آموزشی.</li>
+            <li data-fa="تحلیل بازار، بررسی رقبا و شناسایی فرصت‌های رشد به‌منظور افزایش سهم بازار." data-en="Market analysis, competitor research, and identifying growth opportunities to increase market share." data-de="Marktanalyse, Wettbewerbsforschung und Identifizierung von Wachstumschancen zur Steigerung des Marktanteils.">تحلیل بازار، بررسی رقبا و شناسایی فرصت‌های رشد به‌منظور افزایش سهم بازار.</li>
+            <li data-fa="توسعه شبکه همکاری با اساتید دانشگاه و ایجاد ارتباط مؤثر با تأمین‌کنندگان محتوای آموزشی." data-en="Developing collaboration network with university professors and building effective communication with educational content providers." data-de="Aufbau eines Kooperationsnetzwerks mit Universitätsprofessoren und effektive Kommunikation mit Bildungsanbietern.">توسعه شبکه همکاری با اساتید دانشگاه و ایجاد ارتباط مؤثر با تأمین‌کنندگان محتوای آموزشی.</li>
+            <li data-fa="بهینه‌سازی تجربه کاربران در فرآیند ثبت‌نام، استفاده از خدمات و تعامل با پلتفرم." data-en="Optimizing user experience in registration process, service usage, and platform interaction." data-de="Optimierung der Benutzererfahrung bei der Registrierung, Nutzung und Interaktion mit der Plattform.">بهینه‌سازی تجربه کاربران در فرآیند ثبت‌نام، استفاده از خدمات و تعامل با پلتفرم.</li>
+            <li data-fa="طراحی و اجرای کمپین‌های جذب کاربر و توسعه آگاهی از برند." data-en="Designing and implementing user acquisition campaigns and brand awareness development." data-de="Entwicklung und Umsetzung von Nutzerakquise-Kampagnen und Markenbekanntheitsentwicklung.">طراحی و اجرای کمپین‌های جذب کاربر و توسعه آگاهی از برند.</li>
+            <li data-fa="توسعه فرآیندهای Customer Success با هدف افزایش رضایت و حفظ کاربران." data-en="Developing Customer Success processes to increase satisfaction and user retention." data-de="Entwicklung von Customer-Success-Prozessen zur Steigerung der Zufriedenheit und Benutzerbindung.">توسعه فرآیندهای Customer Success با هدف افزایش رضایت و حفظ کاربران.</li>
+            <li data-fa="همکاری با تیم اجرایی در تحلیل داده‌ها و ارائه پیشنهادهای بهبود عملکرد محصول." data-en="Collaborating with the executive team in data analysis and providing product performance improvement suggestions." data-de="Zusammenarbeit mit dem Führungsteam bei der Datenanalyse und Bereitstellung von Verbesserungsvorschlägen für die Produktleistung.">همکاری با تیم اجرایی در تحلیل داده‌ها و ارائه پیشنهادهای بهبود عملکرد محصول.</li>
+            <li data-fa="پشتیبانی از فرآیندهای توسعه کسب‌وکار و رشد پایدار پلتفرم." data-en="Supporting business development processes and sustainable platform growth." data-de="Unterstützung der Geschäftsentwicklungsprozesse und des nachhaltigen Plattformwachstums.">پشتیبانی از فرآیندهای توسعه کسب‌وکار و رشد پایدار پلتفرم.</li>
           </ul>
         </div>
 
@@ -761,7 +781,7 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
   <div class="wrap two" style="gap:80px;align-items:start">
     <div>
       <h2 data-fa="تماس بگیرید" data-en="Contact Me" data-de="Kontaktieren Sie mich">تماس بگیرید</h2>
-      <p data-fa="رشد کسب‌وکار نتیجه تصمیم‌های درست، استراتژی‌های هدفمند و اجرای مؤثر است. با تکیه بر تجربه در بازاریابی دیجیتال، استراتژی رشد، توسعه فروش و برندینگ، آماده‌ام راهکارهایی طراحی و اجرا کنم که به توسعه بازار، بهبود عملکرد و خلق ارزش پایدار برای کسب‌وکارها منجر شوند." data-en="Business growth is the result of right decisions, targeted strategies, and effective execution. Drawing on my experience in digital marketing, growth strategy, sales development, and branding, I am ready to design and implement solutions that lead to market development, performance improvement, and sustainable value creation for businesses." data-de="Geschäftswachstum ist das Ergebnis richtiger Entscheidungen, zielgerichteter Strategien und effektiver Umsetzung. Basierend auf meiner Erfahrung im digitalen Marketing, in der Wachstumsstrategie, Vertriebsentwicklung und im Branding bin ich bereit, Lösungen zu entwickeln und umzusetzen, die zu Marktentwicklung, Leistungsverbesserung und nachhaltiger Wertschöpfung für Unternehmen führen.">رشد کسب‌وکار نتیجه تصمیم‌های درست، استراتژی‌های هدفمند و اجرای مؤثر است. با تکیه بر تجربه در بازاریابی دیجیتال، استراتژی رشد، توسعه فروش و برندینگ، آماده‌ام راهکارهایی طراحی و اجرا کنم که به توسعه بازار، بهبود عملکرد و خلق ارزش پایدار برای کسب‌وکارها منجر شوند.</p>
+      <p data-fa="رشد کسب‌وکار نتیجه تصمیم‌های درست، استراتژی‌های هدفمند و اجرای مؤثر است. با تکیه بر تجربه در بازاریابی دیجیتال، استراتژی رشد، توسعه فروش و برندینگ، آماده‌ام راهکارهایی طراحی و اجرا کنم که به توسعه بازار، بهبود عملکرد و خلق ارزش پایدار برای کسب‌وکارها منجر شوند. همکاری با شرکت‌های دانش‌بنیان، استارتاپ‌ها و برندهای نوآور را فرصتی برای ساخت مسیرهای رشد بلندمدت، توسعه مزیت رقابتی و دستیابی به اهداف بزرگ‌تر می‌دانم. آغاز یک همکاری حرفه‌ای می‌تواند نقطه شروع خلق ارزش، توسعه بازار و دستیابی به نتایجی ماندگار باشد." data-en="Business growth is the result of right decisions, targeted strategies, and effective execution. Drawing on my experience in digital marketing, growth strategy, sales development, and branding, I am ready to design and implement solutions that lead to market development, performance improvement, and sustainable value creation for businesses. I see collaboration with knowledge-based companies, startups, and innovative brands as an opportunity to build long-term growth paths, develop competitive advantage, and achieve greater goals. The beginning of a professional collaboration can be the starting point for value creation, market development, and achieving lasting results." data-de="Geschäftswachstum ist das Ergebnis richtiger Entscheidungen, zielgerichteter Strategien und effektiver Umsetzung. Basierend auf meiner Erfahrung im digitalen Marketing, in der Wachstumsstrategie, Vertriebsentwicklung und im Branding bin ich bereit, Lösungen zu entwickeln und umzusetzen, die zu Marktentwicklung, Leistungsverbesserung und nachhaltiger Wertschöpfung für Unternehmen führen. Ich sehe die Zusammenarbeit mit wissensbasierten Unternehmen, Startups und innovativen Marken als eine Gelegenheit, langfristige Wachstumspfade aufzubauen, Wettbewerbsvorteile zu entwickeln und größere Ziele zu erreichen. Der Beginn einer professionellen Zusammenarbeit kann der Ausgangspunkt für Wertschöpfung, Marktentwicklung und das Erreichen nachhaltiger Ergebnisse sein.">رشد کسب‌وکار نتیجه تصمیم‌های درست، استراتژی‌های هدفمند و اجرای مؤثر است. با تکیه بر تجربه در بازاریابی دیجیتال، استراتژی رشد، توسعه فروش و برندینگ، آماده‌ام راهکارهایی طراحی و اجرا کنم که به توسعه بازار، بهبود عملکرد و خلق ارزش پایدار برای کسب‌وکارها منجر شوند. همکاری با شرکت‌های دانش‌بنیان، استارتاپ‌ها و برندهای نوآور را فرصتی برای ساخت مسیرهای رشد بلندمدت، توسعه مزیت رقابتی و دستیابی به اهداف بزرگ‌تر می‌دانم. آغاز یک همکاری حرفه‌ای می‌تواند نقطه شروع خلق ارزش، توسعه بازار و دستیابی به نتایجی ماندگار باشد.</p>
       <div class="cms">
         <a href="tel:09046655304" class="cm glass phone-link" data-fa-href="tel:۰۹۰۴۶۶۵۵۳۰۴" data-en-href="tel:09046655304" data-de-href="tel:09046655304"><div><strong data-fa="شماره تماس" data-en="Phone Number" data-de="Telefonnummer">شماره تماس</strong><span class="phone-number" data-fa="۰۹۰۴۶۶۵۵۳۰۴" data-en="09046655304" data-de="09046655304">۰۹۰۴۶۶۵۵۳۰۴</span></div></a>
         <a href="mailto:mongerireza@gmail.com" class="cm glass"><div><strong data-fa="ایمیل" data-en="Email" data-de="E-Mail">ایمیل</strong><span>mongerireza@gmail.com</span></div></a>
@@ -796,6 +816,70 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
 </footer>
 
 <script>
+// ==================== تخصص‌ها و ابزارها - جداسازی به Badgeهای جداگانه ====================
+const skillsData = {
+  marketing: {
+    fa: "بازاریابی رشد و رشد هکینگ | بازاریابی عملکردی | تولید سرنخ و قیف فروش | بهینه‌سازی نرخ تبدیل (CRO) | طراحی قیف | جذب و نگهداری مشتری | بخش‌بندی مخاطبان (B2B & B2C) | همکاری با اینفلوئنسر و برندها | بازاریابی ایمیلی و مستقیم | بازاریابی پیامکی",
+    en: "Growth Marketing & Growth Hacking | Performance Marketing | Lead Generation & Sales Funnel | Conversion Rate Optimization (CRO) | Funnel Design | Customer Acquisition & Retention | Audience Segmentation (B2B & B2C) | Influencer & Brand Collaboration | Email Marketing & Direct Marketing | SMS Marketing",
+    de: "Growth Marketing & Growth Hacking | Performance Marketing | Lead-Generierung & Sales Funnel | Conversion-Rate-Optimierung (CRO) | Trichter-Design | Kundenakquise & -bindung | Zielgruppensegmentierung (B2B & B2C) | Influencer & Markenkooperation | E-Mail-Marketing & Direktmarketing | SMS-Marketing"
+  },
+  strategy: {
+    fa: "تحقیقات بازار و تحلیل رقبا | نقشه سفر مشتری و طراحی پرسونا | استراتژی ورود به بازار (GTM) | طراحی و مدیریت OKR و KPI | تحلیل ROI / CAC / LTV / CVR | تست A/B و تصمیم‌گیری مبتنی بر داده | بودجه‌ریزی و بهینه‌سازی کمپین",
+    en: "Market Research & Competitive Analysis | Customer Journey Mapping & Persona Design | Go-To-Market Strategy | OKR & KPI Design / Management | ROI / CAC / LTV / CVR Analysis | A/B Testing & Data-Driven Decision Making | Budget Planning & Campaign Optimization",
+    de: "Marktforschung & Wettbewerbsanalyse | Customer Journey Mapping & Persona-Design | Go-To-Market-Strategie | OKR & KPI Design / Management | ROI / CAC / LTV / CVR Analyse | A/B-Tests & Datengesteuerte Entscheidungsfindung | Budgetplanung & Kampagnenoptimierung"
+  },
+  content: {
+    fa: "استراتژی محتوا و تقویم تحریریه | بازاریابی محتوایی و قیف محتوا | مدیریت شبکه‌های اجتماعی (چند پلتفرم) | داستان‌سرایی برند و هویت بصری | کپی‌رایتینگ (AIDA / PAS / Conversion) | مدیریت جامعه | تولید محتوای سئو محور",
+    en: "Content Strategy & Editorial Calendar | Content Marketing & Content Funnel | Social Media Management (Multi-Platform) | Brand Storytelling & Visual Identity | Copywriting (AIDA / PAS / Conversion Copywriting) | Community Management | SEO Content Writing",
+    de: "Content-Strategie & Redaktionskalender | Content-Marketing & Content-Trichter | Social Media Management (Multi-Plattform) | Marken-Storytelling & Visuelle Identität | Copywriting (AIDA / PAS / Conversion) | Community Management | SEO-Content-Erstellung"
+  },
+  bizdev: {
+    fa: "توسعه فروش (SDR) | مدیریت CRM و چرخه حیات مشتری | استراتژی فروش B2B و B2C | استراتژی رشد کسب‌وکار | توسعه بازار بین‌المللی | مشاوره عمده‌فروشی و همکاری با شرکا",
+    en: "Sales Development (SDR) | CRM & Customer Lifecycle Management | B2B & B2C Sales Strategy | Business Growth Strategy | International Market Development | Wholesale & Partner Consulting",
+    de: "Vertriebsentwicklung (SDR) | CRM & Customer Lifecycle Management | B2B & B2C Vertriebsstrategie | Geschäftswachstumsstrategie | Internationale Marktentwicklung | Großhandel & Partnerberatung"
+  },
+  design: {
+    fa: "طراحی گرافیک (پوستر / استوری / پست / بنر) | تدوین ویدیو | موشن گرافیک | هویت برند و دستورالعمل بصری",
+    en: "Graphic Design (Poster / Story / Post / Banner) | Video Editing | Motion Graphics | Brand Identity & Visual Guideline",
+    de: "Grafikdesign (Poster / Story / Post / Banner) | Videobearbeitung | Motion Graphics | Markenidentität & Visuelle Richtlinie"
+  },
+  tools: {
+    fa: "Google Analytics (GA4) | Meta Business Suite و Instagram Insights | Google Ads | Google Search Console | Canva و Adobe Photoshop | CapCut / Premiere Pro | Notion و Trello | Microsoft Office Suite | سیستم‌های مدیریت محتوا (CMS) | ChatGPT / Claude / Gemini",
+    en: "Google Analytics (GA4) | Meta Business Suite & Instagram Insights | Google Ads | Google Search Console | Canva & Adobe Photoshop | CapCut / Premiere Pro | Notion & Trello | Microsoft Office Suite | CMS Platforms | ChatGPT / Claude / Gemini",
+    de: "Google Analytics (GA4) | Meta Business Suite & Instagram Insights | Google Ads | Google Search Console | Canva & Adobe Photoshop | CapCut / Premiere Pro | Notion & Trello | Microsoft Office Suite | CMS-Plattformen | ChatGPT / Claude / Gemini"
+  }
+};
+
+function renderSkillTags() {
+  const lang = currentLang || 'fa';
+  for (const [key, data] of Object.entries(skillsData)) {
+    const container = document.getElementById(`sk-tags-${key}`);
+    if (container) {
+      const text = data[lang];
+      const items = text.split('|').map(item => item.trim());
+      container.innerHTML = '';
+      items.forEach(item => {
+        const span = document.createElement('span');
+        span.className = 'sk-tag';
+        span.textContent = item;
+        container.appendChild(span);
+      });
+    }
+  }
+}
+
+// ==================== لینک‌دهی بخش مسیر حرفه‌ای ====================
+function scrollToJob(targetId) {
+  const element = document.getElementById(targetId);
+  if (element) {
+    const offset = document.getElementById('nav').offsetHeight + 20;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
+    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+  }
+}
+
+// ==================== کد اصلی ====================
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
 let W, H, particles = [], mouse = {x:0, y:0};
@@ -959,6 +1043,8 @@ function updateLanguage(lang) {
     const newText = slide.getAttribute(`data-${lang}`);
     if(newText) slide.textContent = newText;
   });
+  
+  renderSkillTags();
 }
 function openLangModal(e) { e.preventDefault(); e.stopPropagation(); langModal.style.display = 'flex'; }
 function closeLangModal() { langModal.style.display = 'none'; }
@@ -982,12 +1068,24 @@ function scrollToSection(id){
     document.querySelectorAll('[data-section]').forEach(el => { el.classList.toggle('active', el.dataset.section === id); });
   }
 }
+
+// کلیک روی آیتم‌های مسیر حرفه‌ای
+document.querySelectorAll('.tl').forEach(item => {
+  item.addEventListener('click', function(e) {
+    const target = this.getAttribute('data-target');
+    if(target) {
+      e.preventDefault();
+      scrollToJob(target);
+    }
+  });
+});
+
 const burger = document.getElementById('burger');
 const mobMenu = document.getElementById('mobMenu');
 function closeMenu() { burger.classList.remove('open'); mobMenu.classList.remove('open'); }
 function openMenu() { burger.classList.add('open'); mobMenu.classList.add('open'); }
 burger.addEventListener('click', function(e) { e.stopPropagation(); mobMenu.classList.contains('open') ? closeMenu() : openMenu(); });
-document.querySelectorAll('.mob-menu a, .nav-links a').forEach(item => {
+document.querySelectorAll('.mob-menu a, .nav-links a, .hero-btns .btn[data-section]').forEach(item => {
   item.addEventListener('click', function(e) {
     const sectionId = this.getAttribute('data-section');
     if(sectionId) { e.preventDefault(); scrollToSection(sectionId); closeMenu(); }
@@ -1054,6 +1152,7 @@ function reveal(){
   });
 }
 reveal();
+renderSkillTags();
 </script>
 </body>
 </html>
