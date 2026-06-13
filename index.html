@@ -496,6 +496,21 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
 }
 .achievement-list li:last-child { margin-bottom: 0; }
 .achievement-list li::before { content: '▹'; position: absolute; right: 0; color: var(--accent); font-size: 0.8rem; }
+.link-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 40px;
+  font-size: 0.7rem;
+  text-decoration: none;
+  transition: all 0.2s var(--ease);
+}
+.link-box:hover {
+  transform: translateY(-2px);
+  border-color: var(--border2);
+  background: var(--glow2);
+}
 @media(max-width:960px){
   .resume-wrap { grid-template-columns:1fr; }
   .two,.hero-in { grid-template-columns:1fr; gap:40px; }
@@ -683,6 +698,7 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
       <div>
         <h2 data-fa="تجربه حرفه‌ای" data-en="Professional Experience" data-de="Berufserfahrung">تجربه حرفه‌ای</h2>
         
+        <!-- ========== کارشناس ارشد بازاریابی دیجیتال و توسعه فروش ========== -->
         <div id="job-senior" class="job-entry" style="scroll-margin-top: 90px;">
           <div class="job-head"><span class="job-title-t" data-fa="کارشناس ارشد بازاریابی دیجیتال و توسعه فروش" data-en="Senior Digital Marketing & Sales Development Specialist" data-de="Senior Digital Marketing & Vertriebsentwicklungsspezialist">کارشناس ارشد بازاریابی دیجیتال و توسعه فروش</span><span class="job-date"><span data-fa="مهر۱۴۰۴- هم اکنون" data-en="Oct 2025 - Present" data-de="Okt 2025 - Heute">مهر۱۴۰۴- هم اکنون</span></span></div>
           <div class="job-co" data-fa="تجهیزات پزشکی ایران" data-en="Iran Medical Equipment" data-de="Iran Medizintechnik">تجهیزات پزشکی ایران</div>
@@ -697,8 +713,15 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
             <li data-fa="تهیه گزارش‌های مدیریتی و ارائه تحلیل‌های کاربردی برای پشتیبانی از تصمیم‌گیری‌های استراتژیک." data-en="Preparing management reports and providing practical analyses to support strategic decision-making." data-de="Erstellung von Managementberichten und Bereitstellung praktischer Analysen zur Unterstützung strategischer Entscheidungen.">تهیه گزارش‌های مدیریتی و ارائه تحلیل‌های کاربردی برای پشتیبانی از تصمیم‌گیری‌های استراتژیک.</li>
             <li data-fa="شناسایی فرصت‌های رشد، توسعه بازار و بهبود مزیت رقابتی سازمان." data-en="Identifying growth opportunities, market development, and improving competitive advantage." data-de="Identifizierung von Wachstumschancen, Marktentwicklung und Verbesserung des Wettbewerbsvorteils.">شناسایی فرصت‌های رشد، توسعه بازار و بهبود مزیت رقابتی سازمان.</li>
           </ul>
+          <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border);">
+            <div class="side-title" style="margin-bottom: 16px;" data-fa="لینک‌ها" data-en="Links" data-de="Links">لینک‌ها</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <a href="https://www.instagram.com/imedcity.ir" target="_blank" rel="noopener noreferrer" class="glass link-box">📷 imedcity.ir</a>
+            </div>
+          </div>
         </div>
         
+        <!-- ========== مدیر بازاریابی و توسعه برند ========== -->
         <div id="job-brand" class="job-entry" style="scroll-margin-top: 90px;">
           <div class="job-head"><span class="job-title-t" data-fa="مدیر بازاریابی و توسعه برند" data-en="Marketing & Brand Development Manager" data-de="Marketing & Markenentwicklungsmanager">مدیر بازاریابی و توسعه برند</span><span class="job-date"><span data-fa="اردیبهشت ۱۴۰۲ - اسفند ۱۴۰۴" data-en="May 2023 - March 2025" data-de="Mai 2023 - März 2025">اردیبهشت ۱۴۰۲ - اسفند ۱۴۰۴</span></span></div>
           <div class="job-co" data-fa="استودیو معماری رحیم دبی / استودیو معماری حمید نبئی / مجموعه آجرباشی — معماری و دکوراسیون داخلی و خارجی" data-en="Rahim Dubai Architecture Studio / Hamid Nabaei Architecture Studio / Ajorbashi Collection — Interior & Exterior Architecture and Decoration" data-de="Rahim Dubai Architekturstudio / Hamid Nabaei Architekturstudio / Ajorbashi Kollektion — Innen- und Außenarchitektur und Dekoration">استودیو معماری رحیم دبی / استودیو معماری حمید نبئی / مجموعه آجرباشی — معماری و دکوراسیون داخلی و خارجی</div>
@@ -713,8 +736,19 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
             <li data-fa="تحلیل مستمر عملکرد کمپین‌ها و بهینه‌سازی فرآیندهای بازاریابی بر اساس داده‌های واقعی." data-en="Continuous analysis of campaign performance and optimization of marketing processes based on real data." data-de="Kontinuierliche Analyse der Kampagnenleistung und Optimierung von Marketingprozessen basierend auf realen Daten.">تحلیل مستمر عملکرد کمپین‌ها و بهینه‌سازی فرآیندهای بازاریابی بر اساس داده‌های واقعی.</li>
             <li data-fa="ارائه راهکارهای توسعه کسب‌وکار و افزایش سهم بازار از طریق بازاریابی دیجیتال." data-en="Providing business development solutions and increasing market share through digital marketing." data-de="Bereitstellung von Lösungen für die Geschäftsentwicklung und Steigerung des Marktanteils durch digitales Marketing.">ارائه راهکارهای توسعه کسب‌وکار و افزایش سهم بازار از طریق بازاریابی دیجیتال.</li>
           </ul>
+          <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border);">
+            <div class="side-title" style="margin-bottom: 16px;" data-fa="لینک‌ها" data-en="Links" data-de="Links">لینک‌ها</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <a href="https://ajorbashi.com" target="_blank" rel="noopener noreferrer" class="glass link-box">🌐 ajorbashi.com</a>
+              <a href="https://www.instagram.com/ajorbashi" target="_blank" rel="noopener noreferrer" class="glass link-box">📷 ajorbashi</a>
+              <a href="https://www.instagram.com/rahim.dabi" target="_blank" rel="noopener noreferrer" class="glass link-box">📷 rahim.dabi</a>
+              <a href="https://memarbiz.com" target="_blank" rel="noopener noreferrer" class="glass link-box">🌐 memarbiz.com</a>
+              <a href="https://www.instagram.com/hamid.nabaee" target="_blank" rel="noopener noreferrer" class="glass link-box">📷 hamid.nabaee</a>
+            </div>
+          </div>
         </div>
         
+        <!-- ========== مشاور رشد دیجیتال و طراح گرافیک ========== -->
         <div id="job-consultant" class="job-entry" style="scroll-margin-top: 90px;">
           <div class="job-head"><span class="job-title-t" data-fa="مشاور رشد دیجیتال و طراح گرافیک" data-en="Digital Growth Consultant & Graphic Designer" data-de="Digital Growth Berater & Grafikdesigner">مشاور رشد دیجیتال و طراح گرافیک</span><span class="job-date"><span data-fa="آبان۱۴۰۱-بهمن۱۴۰۴" data-en="Nov 2022 - Feb 2025" data-de="Nov 2022 - Feb 2025">آبان۱۴۰۱-بهمن۱۴۰۴</span></span></div>
           <div class="job-co" data-fa="دانشگاه سراسری مراغه / تبریز" data-en="University of Maragheh / Tabriz" data-de="Universität Maragheh / Tabriz">دانشگاه سراسری مراغه / تبریز</div>
@@ -729,8 +763,16 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
             <li data-fa="تحلیل عملکرد رسانه‌ها و ارائه پیشنهادهای بهبود مبتنی بر داده." data-en="Analyzing media performance and providing data-based improvement suggestions." data-de="Analyse der Medienleistung und Bereitstellung datenbasierter Verbesserungsvorschläge.">تحلیل عملکرد رسانه‌ها و ارائه پیشنهادهای بهبود مبتنی بر داده.</li>
             <li data-fa="مشارکت در توسعه جایگاه برند دانشگاه در فضای دیجیتال." data-en="Participating in developing the university's brand position in digital space." data-de="Beteiligung an der Entwicklung der Markenposition der Universität im digitalen Raum.">مشارکت در توسعه جایگاه برند دانشگاه در فضای دیجیتال.</li>
           </ul>
+          <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border);">
+            <div class="side-title" style="margin-bottom: 16px;" data-fa="لینک‌ها" data-en="Links" data-de="Links">لینک‌ها</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <a href="https://www.instagram.com/unimaragheh" target="_blank" rel="noopener noreferrer" class="glass link-box">📷 unimaragheh</a>
+              <a href="https://www.instagram.com/tabrizuniversity.official" target="_blank" rel="noopener noreferrer" class="glass link-box">📷 tabrizuniversity.official</a>
+            </div>
+          </div>
         </div>
 
+        <!-- ========== متخصص Growth Marketing و پشتیبان پلتفرم ========== -->
         <div id="job-growth" class="job-entry" style="scroll-margin-top: 90px;">
           <div class="job-head"><span class="job-title-t" data-fa="متخصص Growth Marketing و پشتیبان پلتفرم" data-en="Growth Marketing Specialist & Platform Support" data-de="Growth Marketing Spezialist & Plattform-Support">متخصص Growth Marketing و پشتیبان پلتفرم</span><span class="job-date"><span data-fa="آبان ۱۳۹۹ - شهریور ۱۴۰۱" data-en="Nov 2020 - Sep 2022" data-de="Nov. 2020 - Sep. 2022">آبان ۱۳۹۹ - شهریور ۱۴۰۱</span></span></div>
           <div class="job-co" data-fa="استارتاپ آموزشی مای‌یونی" data-en="MyUni Educational Startup" data-de="MyUni Bildungs-Startup">استارتاپ آموزشی مای‌یونی</div>
@@ -745,6 +787,13 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
             <li data-fa="همکاری با تیم اجرایی در تحلیل داده‌ها و ارائه پیشنهادهای بهبود عملکرد محصول." data-en="Collaborating with the executive team in data analysis and providing product performance improvement suggestions." data-de="Zusammenarbeit mit dem Führungsteam bei der Datenanalyse und Bereitstellung von Verbesserungsvorschlägen für die Produktleistung.">همکاری با تیم اجرایی در تحلیل داده‌ها و ارائه پیشنهادهای بهبود عملکرد محصول.</li>
             <li data-fa="پشتیبانی از فرآیندهای توسعه کسب‌وکار و رشد پایدار پلتفرم." data-en="Supporting business development processes and sustainable platform growth." data-de="Unterstützung der Geschäftsentwicklungsprozesse und des nachhaltigen Plattformwachstums.">پشتیبانی از فرآیندهای توسعه کسب‌وکار و رشد پایدار پلتفرم.</li>
           </ul>
+          <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border);">
+            <div class="side-title" style="margin-bottom: 16px;" data-fa="لینک‌ها" data-en="Links" data-de="Links">لینک‌ها</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <a href="https://www.instagram.com/faramodeling.ir" target="_blank" rel="noopener noreferrer" class="glass link-box">📷 faramodeling.ir</a>
+              <a href="https://www.instagram.com/my_uni.ir" target="_blank" rel="noopener noreferrer" class="glass link-box">📷 my_uni.ir</a>
+            </div>
+          </div>
         </div>
 
         <div style="margin-top: 48px;">
@@ -764,7 +813,6 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
           <div class="edu-d" data-fa="کارشناسی مهندسی شیمی" data-en="Bachelor of Chemical Engineering" data-de="Bachelor of Chemical Engineering">کارشناسی مهندسی شیمی</div>
           <div class="edu-u" data-fa="دانشگاه سراسری مراغه" data-en="University of Maragheh" data-de="Universität Maragheh">دانشگاه سراسری مراغه</div>
           <div style="font-size:.78rem; color:var(--fg3); margin:4px 0;"><span data-fa="📍 مراغه، ایران" data-en="📍 Maragheh, Iran" data-de="📍 Maragheh, Iran">📍 مراغه، ایران</span></div>
-          <div style="font-size:.78rem; color:var(--accent); margin:4px 0 12px 0;" data-fa="🎓 فارغ‌التحصیل ۱۴۰۵" data-en="🎓 Graduated 2026" data-de="🎓 Abschluss 2026">🎓 فارغ‌التحصیل ۱۴۰۵</div>
           <p style="font-size:.75rem; color:var(--fg2); line-height:1.6; margin-top:10px; padding-top:10px; border-top:1px solid var(--border);" data-fa="پیش‌زمینه مهندسی شیمی به من یاد داده هر مسئله را از منظر فرآیند، داده و بهینه‌سازی ببینم. این نگاه تحلیلی در کنار تجربه اجرایی بازاریابی، رویکردی متفاوت در طراحی کمپین‌های Data-Driven ایجاد کرده." data-en="My chemical engineering background taught me to view every problem from a process, data, and optimization perspective. This analytical mindset, combined with marketing execution experience, has created a unique approach to designing Data-Driven campaigns." data-de="Mein Hintergrund in der Chemietechnik hat mich gelehrt, jedes Problem aus einer Prozess-, Daten- und Optimierungsperspektive zu betrachten. Diese analytische Denkweise hat in Kombination mit meiner Marketingerfahrung einen einzigartigen Ansatz für die Entwicklung datengesteuerter Kampagnen geschaffen.">پیش‌زمینه مهندسی شیمی به من یاد داده هر مسئله را از منظر فرآیند، داده و بهینه‌سازی ببینم. این نگاه تحلیلی در کنار تجربه اجرایی بازاریابی، رویکردی متفاوت در طراحی کمپین‌های Data-Driven ایجاد کرده.</p>
         </div>
         
@@ -816,7 +864,6 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
 </footer>
 
 <script>
-// ==================== تخصص‌ها و ابزارها - جداسازی به Badgeهای جداگانه ====================
 const skillsData = {
   marketing: {
     fa: "بازاریابی رشد و رشد هکینگ | بازاریابی عملکردی | تولید سرنخ و قیف فروش | بهینه‌سازی نرخ تبدیل (CRO) | طراحی قیف | جذب و نگهداری مشتری | بخش‌بندی مخاطبان (B2B & B2C) | همکاری با اینفلوئنسر و برندها | بازاریابی ایمیلی و مستقیم | بازاریابی پیامکی",
@@ -868,7 +915,6 @@ function renderSkillTags() {
   }
 }
 
-// ==================== لینک‌دهی بخش مسیر حرفه‌ای ====================
 function scrollToJob(targetId) {
   const element = document.getElementById(targetId);
   if (element) {
@@ -879,7 +925,6 @@ function scrollToJob(targetId) {
   }
 }
 
-// ==================== کد اصلی ====================
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
 let W, H, particles = [], mouse = {x:0, y:0};
@@ -1069,7 +1114,6 @@ function scrollToSection(id){
   }
 }
 
-// کلیک روی آیتم‌های مسیر حرفه‌ای
 document.querySelectorAll('.tl').forEach(item => {
   item.addEventListener('click', function(e) {
     const target = this.getAttribute('data-target');
@@ -1143,7 +1187,7 @@ document.getElementById('portfolioBtn').addEventListener('click', function() {
 });
 const obs = new IntersectionObserver(es => { es.forEach(e => { if(e.isIntersecting){ e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; obs.unobserve(e.target); } }); }, {threshold: 0.08});
 function reveal(){
-  document.querySelectorAll('.sk-block,.tl,.job-entry,.side-box,.float-card,.achievement-card').forEach(el => {
+  document.querySelectorAll('.sk-block,.tl,.job-entry,.side-box,.float-card,.achievement-card,.link-box').forEach(el => {
     if(el.dataset.rev) return;
     el.dataset.rev = '1';
     el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
