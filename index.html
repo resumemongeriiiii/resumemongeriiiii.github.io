@@ -229,6 +229,10 @@ nav.solid {
   text-align: right;
 }
 .mob-menu a:hover { color:var(--accent); background:rgba(99,143,255,0.08); border-right-color:var(--accent); }
+body.lang-en .mob-menu a { text-align: left; border-right: none; border-left: 3px solid transparent; }
+body.lang-en .mob-menu a:hover { border-left-color: var(--accent); border-right-color: transparent; }
+body.lang-de .mob-menu a { text-align: left; border-right: none; border-left: 3px solid transparent; }
+body.lang-de .mob-menu a:hover { border-left-color: var(--accent); border-right-color: transparent; }
 section { position:relative; z-index:2; }
 .wrap { max-width:1100px; margin:0 auto; padding:0 28px; }
 .sec { padding:96px 0; }
@@ -389,12 +393,16 @@ p { color:var(--fg2); line-height:1.85; margin-bottom:16px; }
   white-space:nowrap;
 }
 .job-co { font-size:.82rem; color:var(--accent); font-weight:600; margin-bottom:12px; }
-.job-buls { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.job-buls { list-style:none; display:flex; flex-direction:column; gap:8px; position:relative; }
 .job-buls li {
   font-size:.82rem; color:var(--fg2);
   padding-right:16px; position:relative; line-height:1.65;
 }
 .job-buls li::before { content:'◆'; position:absolute; right:0; top:7px; color:var(--accent); font-size:.38rem; }
+body.lang-en .job-buls li { padding-right:0; padding-left:16px; }
+body.lang-en .job-buls li::before { right:auto; left:0; top:7px; }
+body.lang-de .job-buls li { padding-right:0; padding-left:16px; }
+body.lang-de .job-buls li::before { right:auto; left:0; top:7px; }
 .side-box { padding:20px; margin-bottom:16px; }
 .side-title {
   font-weight:700;
@@ -496,6 +504,10 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
 }
 .achievement-list li:last-child { margin-bottom: 0; }
 .achievement-list li::before { content: '▹'; position: absolute; right: 0; color: var(--accent); font-size: 0.8rem; }
+body.lang-en .achievement-list li { padding-right:0; padding-left:20px; }
+body.lang-en .achievement-list li::before { right:auto; left:0; }
+body.lang-de .achievement-list li { padding-right:0; padding-left:20px; }
+body.lang-de .achievement-list li::before { right:auto; left:0; }
 .link-box {
   display: inline-flex;
   align-items: center;
@@ -574,6 +586,217 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
 .lang-modal-content button:hover { background: var(--glow); border-color: var(--accent); transform: scale(1.02); }
 #closeLangModal { background: transparent; border: none; color: var(--fg3); font-size: 0.9rem; margin-top: 8px; }
 #closeLangModal:hover { color: var(--accent); background: transparent; }
+
+.portfolio-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(12px);
+  z-index: 20001;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-modal-content {
+  background: var(--bg2);
+  border-radius: 32px;
+  width: 90%;
+  max-width: 900px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border: 1px solid var(--border2);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  position: relative;
+}
+.portfolio-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg2);
+  z-index: 10;
+}
+.portfolio-modal-header h3 {
+  font-size: 1.3rem;
+  margin: 0;
+  color: var(--accent);
+  font-family: 'Vazirmatn', sans-serif;
+}
+.close-portfolio-modal {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--fg3);
+  transition: all 0.2s;
+  padding: 0 8px;
+}
+.close-portfolio-modal:hover { color: var(--accent); transform: scale(1.1); }
+.folders-container {
+  display: flex;
+  gap: 24px;
+  padding: 28px;
+  flex-wrap: wrap;
+}
+.folder-card {
+  flex: 1;
+  min-width: 250px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.3s var(--ease);
+  cursor: pointer;
+}
+.folder-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border2);
+  box-shadow: 0 12px 32px var(--glow2);
+}
+.folder-header {
+  padding: 20px;
+  background: rgba(99,143,255,0.08);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: 'Vazirmatn', sans-serif;
+}
+.folder-header span:first-child { font-size: 1.8rem; }
+.folder-preview {
+  padding: 16px 20px;
+  color: var(--fg2);
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Vazirmatn', sans-serif;
+}
+.folder-preview .count { color: var(--accent); font-weight: 600; }
+.folder-preview .arrow { font-size: 1.2rem; transition: transform 0.2s; }
+.folder-card:hover .folder-preview .arrow { transform: translateX(4px); }
+.folder-content {
+  display: none;
+  padding: 24px;
+}
+.folder-content.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.back-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  padding: 8px 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--fg2);
+  font-family: 'Vazirmatn', sans-serif;
+}
+.back-btn:hover { background: var(--glow); border-color: var(--accent); color: var(--accent); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 16px;
+}
+.gallery-item {
+  background: var(--surface);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.gallery-item:hover { transform: scale(1.02); border-color: var(--accent); box-shadow: 0 8px 20px var(--glow2); }
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+.links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.link-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s;
+}
+.link-item:hover { border-color: var(--accent); background: var(--glow2); transform: translateX(4px); }
+.link-item a {
+  color: var(--fg);
+  text-decoration: none;
+  flex: 1;
+  font-size: 0.85rem;
+  word-break: break-all;
+  font-family: 'Vazirmatn', sans-serif;
+}
+.link-item .link-icon { font-size: 1.3rem; }
+.link-category {
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(99,143,255,0.15);
+  color: var(--accent);
+  white-space: nowrap;
+  font-family: 'Vazirmatn', sans-serif;
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 20002;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.close-lightbox {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
 </style>
 </head>
 <body>
@@ -584,7 +807,7 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
 
 <nav id="nav">
   <div class="nav-inner">
-    <div class="logo" data-fa="وبسایت شخصی رضا منگری" data-en="Reza Mongeri Personal Website" data-de="Persönliche Website von Reza Mongeri">وبسایت شخصی رضا منگری</div>
+    <div class="logo" data-fa="وبسایت شخصی رضا منگری" data-en="Reza Mongeri's Personal Website" data-de="Reza Mongeris Persönliche Website">وبسایت شخصی رضا منگری</div>
     <ul class="nav-links">
       <li><a data-section="home" class="active" data-fa="خانه" data-en="Home" data-de="Startseite">خانه</a></li>
       <li><a data-section="about" data-fa="درباره من" data-en="About" data-de="Über mich">درباره من</a></li>
@@ -618,6 +841,43 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
   </div>
 </div>
 
+<div class="portfolio-modal" id="portfolioModal">
+  <div class="portfolio-modal-content">
+    <div class="portfolio-modal-header">
+      <h3 id="portfolioModalTitle" data-fa="نمونه کارها" data-en="Portfolio" data-de="Portfolio">نمونه کارها</h3>
+      <button class="close-portfolio-modal" id="closePortfolioModal">✕</button>
+    </div>
+    <div id="foldersContainer" class="folders-container">
+      <div class="folder-card" data-folder="graphic">
+        <div class="folder-header">
+          <span>🎨</span>
+          <span data-fa="طراحی گرافیک" data-en="Graphic Design" data-de="Grafikdesign">طراحی گرافیک</span>
+        </div>
+        <div class="folder-preview">
+          <span class="count" data-fa="60 فایل" data-en="60 files" data-de="60 Dateien">60 فایل</span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+      <div class="folder-card" data-folder="links">
+        <div class="folder-header">
+          <span>🔗</span>
+          <span data-fa="لینک ها" data-en="Links" data-de="Links">لینک ها</span>
+        </div>
+        <div class="folder-preview">
+          <span class="count" data-fa="10 لینک" data-en="10 links" data-de="10 Links">10 لینک</span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </div>
+    <div id="folderContent" class="folder-content"></div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="close-lightbox" id="closeLightbox">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
 <section id="home" class="hero">
   <div class="wrap">
     <div class="hero-in">
@@ -633,7 +893,7 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
           </div>
         </div>
         <div class="hero-btns">
-          <button class="btn outline" data-section="about" data-fa="شروع ←" data-en="Start ←" data-de="Start ←">شروع ←</button>
+          <button class="btn outline" data-section="about" data-fa="شروع ←" data-en="Start →" data-de="Start →">شروع ←</button>
           <button class="btn outline" data-section="contact" data-fa="تماس بگیر" data-en="Contact" data-de="Kontakt">تماس بگیر</button>
           <button class="btn solid" id="portfolioBtn" data-fa="مشاهده نمونه‌کارها" data-en="View Portfolio" data-de="Portfolio anzeigen">مشاهده نمونه‌کارها</button>
         </div>
@@ -698,7 +958,6 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
       <div>
         <h2 data-fa="تجربه حرفه‌ای" data-en="Professional Experience" data-de="Berufserfahrung">تجربه حرفه‌ای</h2>
         
-        <!-- ========== کارشناس ارشد بازاریابی دیجیتال و توسعه فروش ========== -->
         <div id="job-senior" class="job-entry" style="scroll-margin-top: 90px;">
           <div class="job-head"><span class="job-title-t" data-fa="کارشناس ارشد بازاریابی دیجیتال و توسعه فروش" data-en="Senior Digital Marketing & Sales Development Specialist" data-de="Senior Digital Marketing & Vertriebsentwicklungsspezialist">کارشناس ارشد بازاریابی دیجیتال و توسعه فروش</span><span class="job-date"><span data-fa="مهر۱۴۰۴- هم اکنون" data-en="Oct 2025 - Present" data-de="Okt 2025 - Heute">مهر۱۴۰۴- هم اکنون</span></span></div>
           <div class="job-co" data-fa="تجهیزات پزشکی ایران" data-en="Iran Medical Equipment" data-de="Iran Medizintechnik">تجهیزات پزشکی ایران</div>
@@ -721,7 +980,6 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
           </div>
         </div>
         
-        <!-- ========== مدیر بازاریابی و توسعه برند ========== -->
         <div id="job-brand" class="job-entry" style="scroll-margin-top: 90px;">
           <div class="job-head"><span class="job-title-t" data-fa="مدیر بازاریابی و توسعه برند" data-en="Marketing & Brand Development Manager" data-de="Marketing & Markenentwicklungsmanager">مدیر بازاریابی و توسعه برند</span><span class="job-date"><span data-fa="اردیبهشت ۱۴۰۲ - اسفند ۱۴۰۴" data-en="May 2023 - March 2025" data-de="Mai 2023 - März 2025">اردیبهشت ۱۴۰۲ - اسفند ۱۴۰۴</span></span></div>
           <div class="job-co" data-fa="استودیو معماری رحیم دبی / استودیو معماری حمید نبئی / مجموعه آجرباشی — معماری و دکوراسیون داخلی و خارجی" data-en="Rahim Dubai Architecture Studio / Hamid Nabaei Architecture Studio / Ajorbashi Collection — Interior & Exterior Architecture and Decoration" data-de="Rahim Dubai Architekturstudio / Hamid Nabaei Architekturstudio / Ajorbashi Kollektion — Innen- und Außenarchitektur und Dekoration">استودیو معماری رحیم دبی / استودیو معماری حمید نبئی / مجموعه آجرباشی — معماری و دکوراسیون داخلی و خارجی</div>
@@ -748,7 +1006,6 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
           </div>
         </div>
         
-        <!-- ========== مشاور رشد دیجیتال و طراح گرافیک ========== -->
         <div id="job-consultant" class="job-entry" style="scroll-margin-top: 90px;">
           <div class="job-head"><span class="job-title-t" data-fa="مشاور رشد دیجیتال و طراح گرافیک" data-en="Digital Growth Consultant & Graphic Designer" data-de="Digital Growth Berater & Grafikdesigner">مشاور رشد دیجیتال و طراح گرافیک</span><span class="job-date"><span data-fa="آبان۱۴۰۱-بهمن۱۴۰۴" data-en="Nov 2022 - Feb 2025" data-de="Nov 2022 - Feb 2025">آبان۱۴۰۱-بهمن۱۴۰۴</span></span></div>
           <div class="job-co" data-fa="دانشگاه سراسری مراغه / تبریز" data-en="University of Maragheh / Tabriz" data-de="Universität Maragheh / Tabriz">دانشگاه سراسری مراغه / تبریز</div>
@@ -772,7 +1029,6 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
           </div>
         </div>
 
-        <!-- ========== متخصص Growth Marketing و پشتیبان پلتفرم ========== -->
         <div id="job-growth" class="job-entry" style="scroll-margin-top: 90px;">
           <div class="job-head"><span class="job-title-t" data-fa="متخصص Growth Marketing و پشتیبان پلتفرم" data-en="Growth Marketing Specialist & Platform Support" data-de="Growth Marketing Spezialist & Plattform-Support">متخصص Growth Marketing و پشتیبان پلتفرم</span><span class="job-date"><span data-fa="آبان ۱۳۹۹ - شهریور ۱۴۰۱" data-en="Nov 2020 - Sep 2022" data-de="Nov. 2020 - Sep. 2022">آبان ۱۳۹۹ - شهریور ۱۴۰۱</span></span></div>
           <div class="job-co" data-fa="استارتاپ آموزشی مای‌یونی" data-en="MyUni Educational Startup" data-de="MyUni Bildungs-Startup">استارتاپ آموزشی مای‌یونی</div>
@@ -832,7 +1088,8 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
       <p data-fa="رشد کسب‌وکار نتیجه تصمیم‌های درست، استراتژی‌های هدفمند و اجرای مؤثر است. با تکیه بر تجربه در بازاریابی دیجیتال، استراتژی رشد، توسعه فروش و برندینگ، آماده‌ام راهکارهایی طراحی و اجرا کنم که به توسعه بازار، بهبود عملکرد و خلق ارزش پایدار برای کسب‌وکارها منجر شوند. همکاری با شرکت‌های دانش‌بنیان، استارتاپ‌ها و برندهای نوآور را فرصتی برای ساخت مسیرهای رشد بلندمدت، توسعه مزیت رقابتی و دستیابی به اهداف بزرگ‌تر می‌دانم. آغاز یک همکاری حرفه‌ای می‌تواند نقطه شروع خلق ارزش، توسعه بازار و دستیابی به نتایجی ماندگار باشد." data-en="Business growth is the result of right decisions, targeted strategies, and effective execution. Drawing on my experience in digital marketing, growth strategy, sales development, and branding, I am ready to design and implement solutions that lead to market development, performance improvement, and sustainable value creation for businesses. I see collaboration with knowledge-based companies, startups, and innovative brands as an opportunity to build long-term growth paths, develop competitive advantage, and achieve greater goals. The beginning of a professional collaboration can be the starting point for value creation, market development, and achieving lasting results." data-de="Geschäftswachstum ist das Ergebnis richtiger Entscheidungen, zielgerichteter Strategien und effektiver Umsetzung. Basierend auf meiner Erfahrung im digitalen Marketing, in der Wachstumsstrategie, Vertriebsentwicklung und im Branding bin ich bereit, Lösungen zu entwickeln und umzusetzen, die zu Marktentwicklung, Leistungsverbesserung und nachhaltiger Wertschöpfung für Unternehmen führen. Ich sehe die Zusammenarbeit mit wissensbasierten Unternehmen, Startups und innovativen Marken als eine Gelegenheit, langfristige Wachstumspfade aufzubauen, Wettbewerbsvorteile zu entwickeln und größere Ziele zu erreichen. Der Beginn einer professionellen Zusammenarbeit kann der Ausgangspunkt für Wertschöpfung, Marktentwicklung und das Erreichen nachhaltiger Ergebnisse sein.">رشد کسب‌وکار نتیجه تصمیم‌های درست، استراتژی‌های هدفمند و اجرای مؤثر است. با تکیه بر تجربه در بازاریابی دیجیتال، استراتژی رشد، توسعه فروش و برندینگ، آماده‌ام راهکارهایی طراحی و اجرا کنم که به توسعه بازار، بهبود عملکرد و خلق ارزش پایدار برای کسب‌وکارها منجر شوند. همکاری با شرکت‌های دانش‌بنیان، استارتاپ‌ها و برندهای نوآور را فرصتی برای ساخت مسیرهای رشد بلندمدت، توسعه مزیت رقابتی و دستیابی به اهداف بزرگ‌تر می‌دانم. آغاز یک همکاری حرفه‌ای می‌تواند نقطه شروع خلق ارزش، توسعه بازار و دستیابی به نتایجی ماندگار باشد.</p>
       <div class="cms">
         <a href="tel:09046655304" class="cm glass phone-link" data-fa-href="tel:۰۹۰۴۶۶۵۵۳۰۴" data-en-href="tel:09046655304" data-de-href="tel:09046655304"><div><strong data-fa="شماره تماس" data-en="Phone Number" data-de="Telefonnummer">شماره تماس</strong><span class="phone-number" data-fa="۰۹۰۴۶۶۵۵۳۰۴" data-en="09046655304" data-de="09046655304">۰۹۰۴۶۶۵۵۳۰۴</span></div></a>
-        <a href="mailto:mongerireza@gmail.com" class="cm glass"><div><strong data-fa="ایمیل" data-en="Email" data-de="E-Mail">ایمیل</strong><span>mongerireza@gmail.com</span></div></a>
+        <a href="mailto:info@rezamongeri.ir" class="cm glass"><div><strong data-fa="ایمیل" data-en="Email" data-de="E-Mail">ایمیل</strong><span>info@rezamongeri.ir</span></div></a>
+        <a href="https://linkedin.com/in/rezamongeri" target="_blank" class="cm glass"><div><strong>LinkedIn</strong><span>linkedin.com/in/rezamongeri</span></div></a>
       </div>
     </div>
     <div>
@@ -859,7 +1116,7 @@ footer p { font-size:.8rem; color:var(--fg3); margin:0; }
 <footer>
   <div class="wrap foot">
     <p>© <span data-fa="۱۴۰۵" data-en="2026" data-de="2026">۱۴۰۵</span> <span data-fa="رضا منگری" data-en="Reza Mongeri" data-de="Reza Mongeri">رضا منگری</span> — <span data-fa="تمامی حقوق محفوظ است" data-en="All rights reserved" data-de="Alle Rechte vorbehalten">تمامی حقوق محفوظ است</span></p>
-    <div class="foot-lnks"><a href="tel:09046655304" class="phone-link" data-fa-href="tel:۰۹۰۴۶۶۵۵۳۰۴" data-en-href="tel:09046655304" data-de-href="tel:09046655304">۰۹۰۴۶۶۵۵۳۰۴</a><a href="mailto:mongerireza@gmail.com">mongerireza@gmail.com</a></div>
+    <div class="foot-lnks"><a href="tel:09046655304" class="phone-link" data-fa-href="tel:۰۹۰۴۶۶۵۵۳۰۴" data-en-href="tel:09046655304" data-de-href="tel:09046655304">۰۹۰۴۶۶۵۵۳۰۴</a><a href="mailto:info@rezamongeri.ir">info@rezamongeri.ir</a><a href="https://linkedin.com/in/rezamongeri" target="_blank">LinkedIn</a></div>
   </div>
 </footer>
 
@@ -1049,7 +1306,108 @@ let currentLang = 'fa';
 const langBtn = document.getElementById('langBtn');
 const langBtnMob = document.getElementById('langBtnMob');
 const langModal = document.getElementById('langModal');
+const portfolioModal = document.getElementById('portfolioModal');
+const portfolioBtn = document.getElementById('portfolioBtn');
+const closePortfolioModal = document.getElementById('closePortfolioModal');
+const foldersContainer = document.getElementById('foldersContainer');
+const folderContentDiv = document.getElementById('folderContent');
 const flagMap = { fa: '🇮🇷', en: '🇬🇧', de: '🇩🇪' };
+
+const graphicImages = [
+  'IMG_6767.JPG', 'IMG_6768.JPG', 'IMG_6769.JPG', 'IMG_6770.JPG',
+  'IMG_6771.JPG', 'IMG_6772.JPG', 'IMG_6773.JPG', 'IMG_6774.JPG',
+  'IMG_6775.JPG', 'IMG_6776.JPG',
+  'IMG_6720.JPG', 'IMG_6721.JPG', 'IMG_6722.JPG', 'IMG_6723.JPG',
+  'IMG_6724.JPG', 'IMG_6725.JPG', 'IMG_6726.JPG', 'IMG_6727.JPG',
+  'IMG_6728.JPG', 'IMG_6729.JPG', 'IMG_6730.JPG', 'IMG_6731.JPG',
+  'IMG_6732.JPG', 'IMG_6733.JPG', 'IMG_6734.JPG', 'IMG_6735.JPG',
+  'IMG_6736.JPG', 'IMG_6737.JPG', 'IMG_6738.JPG', 'IMG_6739.JPG',
+  'IMG_6740.JPG', 'IMG_6741.JPG', 'IMG_6742.JPG', 'IMG_6743.JPG',
+  'IMG_6744.JPG', 'IMG_6745.JPG', 'IMG_6746.JPG', 'IMG_6747.JPG',
+  'IMG_6748.JPG', 'IMG_6749.JPG', 'IMG_6750.JPG', 'IMG_6751.JPG',
+  'IMG_6752.JPG', 'IMG_6753.JPG', 'IMG_6754.JPG', 'IMG_6755.JPG',
+  'IMG_6756.JPG', 'IMG_6757.JPG', 'IMG_6758.JPG', 'IMG_6759.JPG',
+  'IMG_6760.JPG', 'IMG_6761.JPG', 'IMG_6762.JPG', 'IMG_6763.JPG',
+  'IMG_6764.JPG', 'IMG_6765.JPG'
+];
+
+const linksData = [
+  { categoryFa: "مجموعه آجر باشی", categoryEn: "Ajorbashi Collection", categoryDe: "Ajorbashi Kollektion", nameFa: "وبسایت", nameEn: "Website", nameDe: "Website", url: "https://ajorbashi.com", icon: "🌐" },
+  { categoryFa: "مجموعه آجر باشی", categoryEn: "Ajorbashi Collection", categoryDe: "Ajorbashi Kollektion", nameFa: "اینستاگرام", nameEn: "Instagram", nameDe: "Instagram", url: "https://www.instagram.com/ajorbashi", icon: "📷" },
+  { categoryFa: "استودیو رحیم دبی", categoryEn: "Rahim Dubai Studio", categoryDe: "Rahim Dubai Studio", nameFa: "اینستاگرام", nameEn: "Instagram", nameDe: "Instagram", url: "https://www.instagram.com/rahim.dabi", icon: "📷" },
+  { categoryFa: "استودیو حمید نبئی", categoryEn: "Hamid Nabaei Studio", categoryDe: "Hamid Nabaei Studio", nameFa: "اینستاگرام", nameEn: "Instagram", nameDe: "Instagram", url: "https://www.instagram.com/hamid.nabaee", icon: "📷" },
+  { categoryFa: "استودیو حمید نبئی", categoryEn: "Hamid Nabaei Studio", categoryDe: "Hamid Nabaei Studio", nameFa: "وبسایت", nameEn: "Website", nameDe: "Website", url: "https://memarbiz.com", icon: "🌐" },
+  { categoryFa: "مجموعه فرامدلینگ - مای یونی", categoryEn: "Framodeling - My Uni", categoryDe: "Framodeling - My Uni", nameFa: "اینستاگرام", nameEn: "Instagram", nameDe: "Instagram", url: "https://www.instagram.com/faramodeling.ir", icon: "📷" },
+  { categoryFa: "مجموعه فرامدلینگ - مای یونی", categoryEn: "Framodeling - My Uni", categoryDe: "Framodeling - My Uni", nameFa: "اینستاگرام", nameEn: "Instagram", nameDe: "Instagram", url: "https://www.instagram.com/my_uni.ir", icon: "📷" },
+  { categoryFa: "فروشگاه تجهیزات پزشکی ایران", categoryEn: "Iran Medical Equipment Store", categoryDe: "Iran Medizintechnik Store", nameFa: "اینستاگرام", nameEn: "Instagram", nameDe: "Instagram", url: "https://www.instagram.com/imedcity.ir", icon: "📷" },
+  { categoryFa: "دانشگاه مراغه", categoryEn: "University of Maragheh", categoryDe: "Universität Maragheh", nameFa: "اینستاگرام", nameEn: "Instagram", nameDe: "Instagram", url: "https://www.instagram.com/unimaragheh", icon: "📷" },
+  { categoryFa: "دانشگاه تبریز", categoryEn: "University of Tabriz", categoryDe: "Universität Tabriz", nameFa: "اینستاگرام", nameEn: "Instagram", nameDe: "Instagram", url: "https://www.instagram.com/tabrizuniversity.official", icon: "📷" }
+];
+
+function updateFolderPreviewTexts() {
+  document.querySelectorAll('.folder-preview .count').forEach(el => {
+    const key = el.getAttribute(`data-${currentLang}`);
+    if (key) el.textContent = key;
+  });
+  document.querySelectorAll('.folder-header span:last-child').forEach(el => {
+    const key = el.getAttribute(`data-${currentLang}`);
+    if (key) el.textContent = key;
+  });
+}
+
+function showFolder(folderType) {
+  foldersContainer.style.display = 'none';
+  folderContentDiv.classList.add('active');
+  
+  const backBtnText = currentLang === 'fa' ? '← بازگشت به پوشه‌ها' : (currentLang === 'en' ? '← Back to folders' : '← Zurück zu Ordner');
+  
+  if (folderType === 'graphic') {
+    let galleryHtml = `<div style="margin-bottom:20px;"><button class="back-btn" id="backToFoldersBtn" style="font-family: 'Vazirmatn', sans-serif;">${backBtnText}</button></div>`;
+    galleryHtml += '<div class="gallery-grid">';
+    graphicImages.forEach(img => {
+      galleryHtml += `<div class="gallery-item" data-img="assets/${img}"><img src="assets/${img}" alt="پوستر" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22 viewBox=%220 0 200 200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%23333%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22%23666%22 dy=%22.3em%22%3E📷%3C/text%3E%3C/svg%3E';">`;
+      galleryHtml += `</div>`;
+    });
+    galleryHtml += '</div>';
+    folderContentDiv.innerHTML = galleryHtml;
+    
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const imgSrc = item.getAttribute('data-img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        lightboxImg.src = imgSrc;
+        lightbox.style.display = 'flex';
+      });
+    });
+  } 
+  else if (folderType === 'links') {
+    let linksHtml = `<div style="margin-bottom:20px;"><button class="back-btn" id="backToFoldersBtn" style="font-family: 'Vazirmatn', sans-serif;">${backBtnText}</button></div>`;
+    linksHtml += '<div class="links-list">';
+    linksData.forEach(link => {
+      const category = currentLang === 'fa' ? link.categoryFa : (currentLang === 'en' ? link.categoryEn : link.categoryDe);
+      const name = currentLang === 'fa' ? link.nameFa : (currentLang === 'en' ? link.nameEn : link.nameDe);
+      linksHtml += `
+        <div class="link-item">
+          <span class="link-icon">${link.icon}</span>
+          <a href="${link.url}" target="_blank" rel="noopener noreferrer">${name} - ${category}</a>
+          <span class="link-category">${category}</span>
+        </div>
+      `;
+    });
+    linksHtml += '</div>';
+    folderContentDiv.innerHTML = linksHtml;
+  }
+  
+  document.getElementById('backToFoldersBtn')?.addEventListener('click', () => {
+    foldersContainer.style.display = 'flex';
+    folderContentDiv.classList.remove('active');
+    folderContentDiv.innerHTML = '';
+    updateFolderPreviewTexts();
+  });
+}
+
 function updateLanguage(lang) {
   currentLang = lang;
   document.documentElement.setAttribute('dir', lang === 'fa' ? 'rtl' : 'ltr');
@@ -1060,8 +1418,6 @@ function updateLanguage(lang) {
       const placeholderAttr = `data-${lang}-placeholder`;
       if(el.hasAttribute(placeholderAttr)) {
         el.placeholder = el.getAttribute(placeholderAttr);
-      } else if(el.hasAttribute('placeholder')) {
-        el.placeholder = '';
       }
     } else if(el.tagName === 'OPTION') {
       const langValue = el.getAttribute(`data-${lang}`);
@@ -1089,10 +1445,25 @@ function updateLanguage(lang) {
     if(newText) slide.textContent = newText;
   });
   
+  const portfolioTitle = document.getElementById('portfolioModalTitle');
+  if(portfolioTitle) {
+    portfolioTitle.textContent = portfolioTitle.getAttribute(`data-${lang}`);
+  }
+  
+  updateFolderPreviewTexts();
   renderSkillTags();
 }
+
 function openLangModal(e) { e.preventDefault(); e.stopPropagation(); langModal.style.display = 'flex'; }
 function closeLangModal() { langModal.style.display = 'none'; }
+function openPortfolioModal() { portfolioModal.style.display = 'flex'; updateFolderPreviewTexts(); }
+function closePortfolioModalFunc() { 
+  portfolioModal.style.display = 'none';
+  foldersContainer.style.display = 'flex';
+  folderContentDiv.classList.remove('active');
+  folderContentDiv.innerHTML = '';
+}
+
 langBtn.addEventListener('click', openLangModal);
 langBtnMob.addEventListener('click', openLangModal);
 document.getElementById('closeLangModal').addEventListener('click', closeLangModal);
@@ -1100,6 +1471,24 @@ langModal.addEventListener('click', function(e) { if(e.target === langModal) clo
 document.querySelectorAll('#langModal [data-lang]').forEach(btn => {
   btn.addEventListener('click', (e) => { e.stopPropagation(); updateLanguage(btn.getAttribute('data-lang')); closeLangModal(); });
 });
+
+portfolioBtn.addEventListener('click', openPortfolioModal);
+closePortfolioModal.addEventListener('click', closePortfolioModalFunc);
+portfolioModal.addEventListener('click', (e) => { if(e.target === portfolioModal) closePortfolioModalFunc(); });
+
+document.querySelectorAll('.folder-card').forEach(folder => {
+  folder.addEventListener('click', () => {
+    const folderType = folder.getAttribute('data-folder');
+    showFolder(folderType);
+  });
+});
+
+const lightbox = document.getElementById('lightbox');
+const closeLightbox = document.getElementById('closeLightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+closeLightbox.addEventListener('click', () => { lightbox.style.display = 'none'; });
+lightbox.addEventListener('click', (e) => { if(e.target === lightbox) lightbox.style.display = 'none'; });
+
 const savedLang = localStorage.getItem('language') || 'fa';
 updateLanguage(savedLang);
 
@@ -1179,11 +1568,6 @@ document.getElementById('cForm').addEventListener('submit', async e => {
       }, 3000);
     } else { btn.innerHTML = currentLang === 'fa' ? 'خطا — دوباره امتحان کن' : (currentLang === 'en' ? 'Error — try again' : 'Fehler — versuchen Sie es erneut'); btn.disabled = false; setTimeout(() => { btn.innerHTML = originalText; }, 3000); }
   } catch{ btn.innerHTML = currentLang === 'fa' ? 'خطا — دوباره امتحان کن' : (currentLang === 'en' ? 'Error — try again' : 'Fehler — versuchen Sie es erneut'); btn.disabled = false; setTimeout(() => { btn.innerHTML = originalText; }, 3000); }
-});
-document.getElementById('portfolioBtn').addEventListener('click', function() {
-  if(currentLang === 'fa') alert('نمونه کارها به زودی افزوده خواهند شد');
-  else if(currentLang === 'en') alert('Portfolio will be added soon');
-  else alert('Portfolio wird in Kürze hinzugefügt');
 });
 const obs = new IntersectionObserver(es => { es.forEach(e => { if(e.isIntersecting){ e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; obs.unobserve(e.target); } }); }, {threshold: 0.08});
 function reveal(){
